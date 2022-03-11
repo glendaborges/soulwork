@@ -1,0 +1,38 @@
+
+
+.container-logo i {
+  font-size: 25px;
+  margin-left: 90px;
+
+}
+.logo {
+  font-size: 50px;
+  margin-left: 10px;
+  color: #142C63;
+  font-weight: 600;
+
+
+}
+.navbar{
+  color: #142C63;
+}
+.logo-text{
+  font-size: 30px;
+  color: #142C63;
+  font-weight: 600;
+}
+.navbar-links{
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  font-size: 20px;
+  color: #142C63;
+
+}
+.ultimo-link{
+  margin-right: 90px;
+
+}
+a{
+color: #142C63;
+}

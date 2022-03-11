@@ -1,0 +1,258 @@
+<div class="container container-card">
+  <div class="d-flex container-title">
+    <h2 class="text-center title mt-5">Funcionários</h2>
+    <button (click)="open(modalCadastrar)" class="cssbuttons-io-button mt-5"> Cadastrar
+      <div class="icon">
+        <i class='bx bx-plus icon-btn'></i>
+      </div>
+    </button>
+  </div>
+  <div class="container row mt-5 ">
+    <div *ngFor="let fun of funcionarios" class="card col-5 mx-4 my-4">
+      <div class="picture">
+        <img src="../../../assets/img/{{fun.func_img | slice:83}}" alt="{{fun.func_img| slice:83}}" class="img">
+        <!-- <img src="../../../assets/img/João Pedro-spa2.jpeg" alt="teste" style="width: 200px;"> -->
+      </div>
+      <div class="name">
+        <p>{{fun.func_nome}}</p>
+      </div>
+      <div class="jobtitle">
+        <p>{{fun.func_formacao}}</p>
+      </div>
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="btn-menu">
+        <i class="bi bi-gear"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="open(modalUploadFoto)">
+          <mat-icon> local_see</mat-icon>
+          <span>Adicionar Foto</span>
+        </button>
+        <button mat-menu-item (click)="open(modalEditar);pegarUmFunc(fun.id_funcionario)">
+          <mat-icon>create</mat-icon>
+          <span>Editar</span>
+        </button>
+        <button mat-menu-item (click)="open(modalExcluir)">
+          <mat-icon>clear</mat-icon>
+          <span>Excluir</span>
+        </button>
+        <button mat-menu-item (click)="open(modaLEndereco);buscarEndereco(fun.id_funcionario)">
+          <mat-icon> my_location</mat-icon>
+          <span>Endereço</span>
+        </button>
+        <button mat-menu-item routerLink="/funcionario/agenda/{{fun.id_funcionario}}">
+          <mat-icon> event_note</mat-icon>
+          <span>Agenda</span>
+        </button>
+      </mat-menu>
+      <!-- **** MODAL DE ENDEREÇO **** -->
+      <ng-template #modaLEndereco let-modal>
+        <div class="modal-header">
+          <h5 class="modal-title" id="endereco">Endereço - <strong>{{fun.func_nome}}</strong></h5>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="enderecoFuncionario == null">
+            <div *ngIf="infoCadastro">
+              <p>Esse funcionário não possui endereço cadastrado. <strong>Deseja realizar o cadastro</strong>?</p>
+              <div class="modal-footer">
+                <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
+                <button type="button" class="btn btn-cad" (click)="mostrarForm()"><span>Realizar
+                    Cadastro</span></button>
+              </div>
+            </div>
+
+            <div *ngIf="formEndereco">
+                  <form class="text-center">
+                    <div class="mb-3">
+                      <mat-form-field appearance="legacy">
+                        <mat-label>CEP</mat-label>
+                        <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_cep"
+                          name="end_cep">
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-form-field appearance="legacy">
+                        <mat-label>Estado</mat-label>
+                        <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_estado"
+                          name="end_estado">
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-form-field appearance="legacy">
+                        <mat-label>Cidade</mat-label>
+                        <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_cidade"
+                          name="end_cidade">
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-form-field appearance="legacy">
+                        <mat-label>Rua</mat-label>
+                        <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_rua"
+                          name="end_rua">
+                      </mat-form-field>
+                    </div>
+                  </form>
+              <div class="modal-footer">
+                <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click');fecharForm()">Cancelar</button>
+                <button type="button" class="btn btn-cad" (click)="cadastrarEndereco(fun.id_funcionario);modal.close('Save click')"><span>Salvar</span></button>
+              </div>
+            </div>
+
+          </div>
+          <div *ngIf="enderecoFuncionario != null">
+            <form class="text-center">
+              <div class="mb-3">
+                <mat-form-field appearance="legacy">
+                  <mat-label>CEP</mat-label>
+                  <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_cep"  name="end_cep">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Estado</mat-label>
+                  <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_estado"
+                    name="end_estado">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Cidade</mat-label>
+                  <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_cidade"
+                    name="end_cidade">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Rua</mat-label>
+                  <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_rua" name="end_rua">
+                </mat-form-field>
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
+              <button type="button" class="btn btn-cad" (click)="editarEndereco(fun.id_funcionario);modal.close('Save click')"><span>Salvar</span></button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- **** // MODAL DE ENDEREÇO **** -->
+      <!-- **** MODAL DE uploadFoto **** -->
+      <ng-template #modalUploadFoto let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="uploadFoto">Definir Foto para <strong>{{fun.func_nome}}</strong></h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="file" name="func_img" (change)="subirFoto($event, fun.func_nome, fun.id_funcionario)">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
+          <button type="button" class="btn btn-cad"
+            (click)="recarregar();modal.close('Save click')"><span>Salvar</span></button>
+        </div>
+      </ng-template>
+      <!-- **** // MODAL DE uploadFoto **** -->
+      <!-- **** MODAL DE EXCLUIR **** -->
+      <ng-template #modalExcluir let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="excluir">Aviso</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Deseja realmente excluir o cargo de <strong>{{fun.func_nome}}</strong>?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
+          <button type="button" class="btn btn-del"
+            (click)="deletarFun(fun.id_funcionario);modal.close('Save click')"><span>Excluir</span></button>
+        </div>
+      </ng-template>
+      <!-- **** // MODAL DE EXCLUIR **** -->
+      <!-- **** MODAL DE EDITAR **** -->
+      <ng-template #modalEditar let-modal>
+        <div class="background">
+          <div class="modal-header">
+            <h4 class="modal-title" class=" text-center">Editar Funcionário</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body form">
+            <form class=" ">
+              <div class="mb-3">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Nome</mat-label>
+                  <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_nome" name="func_nome">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Cidade</mat-label>
+                  <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_formacao" name="func_cidade">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <select name="id_cargo" [(ngModel)]="funcionario.id_cargo">
+                  <option *ngFor="let i of cargos" value="{{i.id_cargo}}"> {{i.car_nome}} </option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="container-btn py-2
+       text-center">
+              <button (click)="editarFunc();modal.close('Save click')" class="btn btn-cad">Salvar</button>
+              <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <!-- **** MODAL DE CADASTRO **** -->
+  <ng-template #modalCadastrar let-modal>
+    <div class="background">
+      <div class="modal-header">
+        <h4 class="modal-title" class=" text-center">Cadastrar Funcionário</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body form">
+        <form class=" ">
+          <div class="mb-3">
+            <mat-form-field appearance="legacy">
+              <mat-label>Nome</mat-label>
+              <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_nome" name="func_nome">
+            </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="legacy">
+              <mat-label>CPF</mat-label>
+              <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_cpf" name="func_cpf">
+            </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="legacy">
+              <mat-label>Cidade</mat-label>
+              <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_formacao" name="func_cidade">
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="container-btn py-2
+       text-center">
+          <button (click)="cadastrarFunc();modal.close('Save click')" class="btn btn-cad">Cadastrar</button>
+          <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>

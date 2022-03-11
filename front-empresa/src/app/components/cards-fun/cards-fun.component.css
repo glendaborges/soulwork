@@ -1,0 +1,198 @@
+/* .container-card{
+  height: 100%;
+} */
+.title{
+  padding: 25px;
+  font-weight: 600;
+}
+.card {
+  width: 250px;
+  height: 320px;
+  border-radius: 10px;
+  box-shadow: 1px 5px 35px 0px #a5a5a56b;
+  padding: 20px;
+ }
+
+ .card .picture,.card .name,.card .jobtitle,.card .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .card .picture {
+  width: 100%;
+  margin: auto;
+ }
+
+ .card .img{
+   width: 75%;
+   height: 150px;
+   border-radius: 100%;
+ }
+
+ .card .picture p {
+  font-size: .8em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+
+ .buttons > div {
+  padding: .5em;
+ }
+
+.buttons  button {
+   width: 50px;
+  padding: .5em;
+  outline: none;
+  background: transparent;
+  border: 1px solid #0f0f0f6b;
+  border-radius: .4em;
+  transition: all .3s;
+  font-size: .9em;
+ }
+
+ .button1 button:hover{
+  background: #971212;
+  color: #f3f0f0;
+ }
+ .button2 button:hover{
+  background: #056337;
+  color: #f3f0f0;
+ }
+
+
+ .card .name p {
+  margin-top: 8%;
+  margin-bottom: 5%;
+  font-size: 1em;
+ }
+
+ .card .jobtitle p {
+  margin-bottom: 10%;
+  font-size: .54em;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+ }
+
+
+.cssbuttons-io-button {
+  background: #142C63;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #102350;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+ }
+
+ .cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #102350;
+  right: 0.3em;
+  transition: all 0.3s;
+ }
+
+ .cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+ }
+
+ .cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #102350;
+ }
+
+ .cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+ }
+
+ .cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+ }
+
+ .container-title{
+   justify-content: space-between;
+ }
+.show-more{
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: none;
+  background: #142C63;
+  box-shadow: 6px 6px 12px #dfdddd,
+             -6px -6px 12px #ffffff;
+  color: #ffffff;
+}
+
+.btn-menu{
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 100%;
+  background: #142C63;
+  box-shadow: 6px 6px 12px #dfdddd,
+             -6px -6px 12px #ffffff;
+  color: #ffffff;
+}
+
+
+.close{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 30px;
+  transition: 300ms;
+}
+.close:hover{
+  color: red;
+}
+
+.btn-cad{
+ background-color: #142C63;
+ color: #ffffff;
+}
+.btn{
+ border: none;
+}
+.btn-cancel{
+ background: #f8f6f6;
+ box-shadow: 6px 6px 12px #dfdddd,
+            -6px -6px 12px #ffffff;
+}
+.form{
+
+ display: flex;
+ justify-content: center;
+}
+mat-form-field{
+ width: 350px;
+}
+h5{
+ font-weight: 600;
+ color: #142C63;
+}
+
+.btn-del{
+ background-color:  #e62222;
+ color: white;
+}
+.btn-del i{
+ color: transparent;
+}

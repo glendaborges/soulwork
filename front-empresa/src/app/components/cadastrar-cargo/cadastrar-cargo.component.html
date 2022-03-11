@@ -1,0 +1,28 @@
+<div class="container-fluid text-center ">
+    <div class="modal-header">
+      <h5 class="modal-title text-center">Cadastro de novo cargo</h5>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <mat-form-field appearance="legacy">
+            <mat-label>Cargo</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="cargo.car_nome" name="car_nome">
+          </mat-form-field>
+
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="legacy">
+            <mat-label>Descrição do cargo</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="cargo.car_atribuicao" name="car_atribuicao">
+          </mat-form-field>
+          
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer container-btn p-2 text-center">
+      <button (click)="cadastrarCargo()" class="btn btn-cad">Cadastrar</button>
+      <button (click)="closeDialog()" class="btn btn-cancel mx-3">Cancelar</button>
+    </div>
+
+</div>

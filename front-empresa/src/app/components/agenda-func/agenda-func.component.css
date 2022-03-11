@@ -1,0 +1,91 @@
+.box-add {
+  background-color: #142C63;
+  color: #ffffff;
+  width: 60%;
+  height: 200px;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* h4{
+  font-size: 20px;
+} */
+
+.btn-plus {
+  background-color: #ffffff;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  font-size: 27px;
+  box-shadow: rgba(0, 0, 0, 0.685) 0px 22px 70px 4px;
+  transition: 1s ease-out
+}
+
+.btn-plus:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.box-calendar {
+  margin: 1rem;
+  padding: .5rem;
+  border: solid 1px #eaeaea;
+  box-shadow: 0 0 10px #e4e4e4;
+  width: 360px;
+  background-color: #e4e4e4;
+}
+
+ol {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: .25rem;
+  font-size: 1.8ch;
+  cursor: pointer;
+
+}
+
+li:hover {
+  font-weight: 600;
+}
+
+
+.day-name {
+  background: #eee;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 2px;
+  padding: 4px;
+  text-align: center;
+
+
+}
+
+.header-calendar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.header-calendar h1 {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+
+.header-calendar button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  font-size: 25px;
+}

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row mt-5">
+    <section class="box-comp col-8">
+      <div class="box-add mt-5">
+        <div class="box-date mx-2 my-auto p-3">
+          <h5 class="my-4">Segunda-feira</h5>
+          <h4>10 de março de 2022</h4>
+        </div>
+        <button class="btn btn-plus my-auto mx-5"><i class='bx bx-plus '></i></button>
+      </div>
+      <div class="agenda mt-5">
+        <mat-card class="my-3">comprimisso 1</mat-card>
+        <mat-card>comprimisso 1</mat-card>
+      </div>
+    </section>
+    <section class="box-calendar mx-4 col-6">
+      <div class="wrapper-calendar mt-4 ">
+        <div class="header-calendar mb-3">
+          <div>
+            <button (click)="mudarMes(-1)" class="btn-prev"> <i class='bx bx-chevron-left'></i> </button>
+          </div>
+          <h1>{{dataSelect | date:'MMMM, yyyy'}}</h1>
+          <div>
+            <button (click)="mudarMes(1)" class="btn-next"><i class='bx bx-chevron-right'></i></button>
+          </div>
+        </div>
+        <ol>
+          <li *ngFor="let i of semana" class="day-name ">{{i | slice:0:3}}</li>
+              <li [style.gridColumnStart]="first ? i?.indexWeek : 'auto'"
+               *ngFor="let i of mesSelect;let first = first">
+            <span>{{i?.value}}</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </div>
+</div>

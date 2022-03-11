@@ -1,0 +1,93 @@
+<main>
+  <div class="container w-75 container-turma">
+    <h2 class="title mt-5 text-center">Cargos</h2>
+    <button (click)="openDialog()" class="cssbuttons-io-button"> Cadastrar
+      <div class="icon">
+        <i class='bx bx-plus'></i>
+      </div>
+    </button>
+    <div style="height: 500px; overflow: auto;">
+      <table class="table mt-5 ">
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Funcionários</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cargo of cargos ">
+            <th scope="row">{{cargo.id_cargo}}</th>
+            <td>{{cargo.car_nome}}</td>
+            <td>{{cargo.car_atribuicao}}</td>
+            <td><i routerLink="/funcionarios/{{cargo.id_cargo}}" class='bx bxs-user'></i></td>
+            <!-- **** FUNÇÃO DE EDITAR -->
+            <td> <i (click)="open(modalEditar)" class='bx bx-edit mx-2'></i>
+              <!-- **** MODAL DE EDITAR **** -->
+              <ng-template #modalEditar let-modal>
+                <div class="background">
+                  <div class="modal-header">
+                    <h4 class="modal-title" class=" text-center">Editar cargo</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body form">
+                    <form class=" ">
+                      <div class="mb-3">
+                        <mat-form-field appearance="legacy">
+                          <mat-label>Cargo</mat-label>
+                          <input matInput placeholder="Placeholder" [(ngModel)]="cargo.car_nome" name="car_nome">
+                        </mat-form-field>
+                      </div>
+                      <div class="mb-3">
+                        <mat-form-field appearance="legacy">
+                          <mat-label>Descrição do cargo</mat-label>
+                          <input matInput placeholder="Placeholder" [(ngModel)]="cargo.car_atribuicao" name="car_atribuicao">
+                        </mat-form-field>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="container-btn py-2
+                     text-center">
+                      <button (click)="editarCargo(cargo);modal.close('Save click')" class="btn btn-cad">Editar</button>
+                      <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">Cancelar</button>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+
+              <!-- **** FUNÇÃO DE EXCLUIR **** -->
+              <i (click)="open(modalExcluir)" class='bx bx-trash'></i>
+              <!-- **** MODAL DE EXCLUIR **** -->
+              <ng-template #modalExcluir let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="excluir">Aviso</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Deseja realmente excluir o cargo de <strong>{{cargo.car_nome}}</strong>?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
+                  <button type="button" class="btn btn-del"
+                    (click)="deletarCargo(cargo.id_cargo);modal.close('Save click')"><span>Excluir</span></button>
+                </div>
+              </ng-template>
+              <!-- **** // MODAL DE EXCLUIR **** -->
+
+
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</main>

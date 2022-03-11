@@ -1,0 +1,139 @@
+.container-turma{
+  height: 72.5%;
+}
+main::-webkit-scrollbar {
+  width: 1rem;
+}
+
+main::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color:#102350 ;
+}
+
+i{
+  font-size: 22px;
+  color: #142C63;
+  cursor: pointer;
+}
+
+h2{
+  font-weight: 600;
+}
+/* From cssbuttons.io by @adamgiebl */
+.cssbuttons-io-button {
+  background: #142C63;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #102350;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+ }
+
+ .cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #102350;
+  right: 0.3em;
+  transition: all 0.3s;
+ }
+
+ .cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+ }
+
+ .cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #102350;
+ }
+
+ .cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+ }
+
+ .cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+ }
+/*
+ .background{
+  background: #f8f6f6;
+ } */
+
+ .close{
+   border: none;
+   outline: none;
+   background-color: transparent;
+   font-size: 30px;
+   transition: 300ms;
+ }
+ .close:hover{
+   color: red;
+ }
+
+.btn-cad{
+  background-color: #142C63;
+  color: #ffffff;
+}
+.btn{
+  border: none;
+}
+.btn-cancel{
+  background: #f8f6f6;
+  box-shadow: 6px 6px 12px #dfdddd,
+             -6px -6px 12px #ffffff;
+}
+.form{
+
+  display: flex;
+  justify-content: center;
+}
+mat-form-field{
+  width: 350px;
+}
+h5{
+  font-weight: 600;
+  color: #142C63;
+}
+
+.btn-del{
+  background-color:  #e62222;
+  color: white;
+}
+.btn-del i{
+  color: transparent;
+}
+
+
+/* label{
+  font-weight: 600;
+}
+input{
+  box-shadow: 4px 4px 12px #dfdddd,
+             -4px -4px 12px #ffffff;
+  border: none;
+}
+input:focus{
+  box-shadow: 4px 4px 12px #dfdddd,
+             -4px -4px 12px #ffffff;
+} */
