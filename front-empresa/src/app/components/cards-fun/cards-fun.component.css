@@ -28,6 +28,7 @@
    width: 75%;
    height: 150px;
    border-radius: 100%;
+   object-fit: cover;
  }
 
  .card .picture p {

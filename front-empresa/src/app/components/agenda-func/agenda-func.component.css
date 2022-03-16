@@ -1,42 +1,55 @@
-.box-add {
-  background-color: #142C63;
-  color: #ffffff;
-  width: 60%;
-  height: 200px;
-  margin: 0 auto;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+.container {
+  height: 75%;
+}
+
+.box-header {
   display: flex;
   justify-content: space-between;
 }
 
-/* h4{
-  font-size: 20px;
-} */
-
-.btn-plus {
-  background-color: #ffffff;
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  font-size: 27px;
-  box-shadow: rgba(0, 0, 0, 0.685) 0px 22px 70px 4px;
-  transition: 1s ease-out
+.box-comp {
+  height: 600px;
+  padding: 28px;
 }
 
-.btn-plus:hover {
-  transform: translateY(-0.25rem);
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+.box-content {
+  background-color: #f5f0f0;
+  padding: 35px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+h4 {
+  /* font-size: 18px; */
+  font-weight: 600;
+  color: #102350;
+}
 
 
 .box-calendar {
-  margin: 1rem;
-  padding: .5rem;
-  border: solid 1px #eaeaea;
+  /* padding: .5rem; */
+  padding: 0;
+  border-radius: 8px;
   box-shadow: 0 0 10px #e4e4e4;
   width: 360px;
-  background-color: #e4e4e4;
+  color: #102350;
+  background-color: #f5f0f0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.top-calendar{
+width: 100%;
+background-color: #142C63;
+color: white;
+text-align: end;
+font-size: 22px;
+border-radius: 8px 8px 0 0;
+padding: 4px;
+}
+.top-calendar i {
+  margin-right: 10px;
+}
+.wrapper-calendar{
+  padding: 10px;
 }
 
 ol {
@@ -61,12 +74,12 @@ li:hover {
 
 .day-name {
   background: #eee;
+  color: #102350;
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 2px;
   padding: 4px;
   text-align: center;
-
 
 }
 
@@ -79,7 +92,7 @@ li:hover {
 
 .header-calendar h1 {
   width: 100%;
-  font-size: 16px;
+  font-size: 22px;
   text-align: center;
 }
 
@@ -88,4 +101,129 @@ li:hover {
   background-color: transparent;
   border: 0;
   font-size: 25px;
+}
+
+.cssbuttons-io-button {
+  background: #142C63;
+  color: white;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #102350;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 8px;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #102350;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #102350;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+i{
+  cursor: pointer;
+}
+.space{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.space i {
+  font-size: 20px;
+}
+.bx-check{
+  color: #008000;
+}
+.bx-task-x{
+  color: #e62222;
+}
+
+.bxs-edit{
+  color: #142C63;
+  font-size: 20px;
+}
+.bx-calendar-event{
+  font-size: 25px;
+}
+.btn-light i {
+  font-size: 22px;
+}
+
+.close{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 30px;
+  transition: 300ms;
+}
+.close:hover{
+  color: red;
+}
+
+.btn-cad{
+ background-color: #142C63;
+ color: #ffffff;
+}
+.btn{
+ border: none;
+}
+.btn-cancel{
+ background: #f8f6f6;
+ box-shadow: 6px 6px 12px #dfdddd,
+            -6px -6px 12px #ffffff;
+}
+.form{
+
+ display: flex;
+ justify-content: center;
+}
+mat-form-field{
+ width: 350px;
+}
+h5{
+ font-weight: 600;
+ color: #142C63;
+}
+
+.btn-del{
+ background-color:  #e62222;
+ color: white;
+}
+.btn-del i{
+ color: transparent;
 }

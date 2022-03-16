@@ -3,14 +3,17 @@
     <h2 class="text-center title mt-5">Funcionários</h2>
     <button (click)="open(modalCadastrar)" class="cssbuttons-io-button mt-5"> Cadastrar
       <div class="icon">
-        <i class='bx bx-plus icon-btn'></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  fill="none"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z" fill="currentColor"></path></svg>
       </div>
     </button>
   </div>
   <div class="container row mt-5 ">
+    <div *ngIf="funcionarios.length == 0" style="height: 55vh;">
+      <mat-card >Nenhum funcionário cadastrado!</mat-card>
+    </div>
     <div *ngFor="let fun of funcionarios" class="card col-5 mx-4 my-4">
       <div class="picture">
-        <img src="../../../assets/img/{{fun.func_img | slice:83}}" alt="{{fun.func_img| slice:83}}" class="img">
+        <img src="../../../assets/img/{{fun.func_img | slice:99}}" alt="{{fun.func_img| slice:99}}" class="img">
         <!-- <img src="../../../assets/img/João Pedro-spa2.jpeg" alt="teste" style="width: 200px;"> -->
       </div>
       <div class="name">

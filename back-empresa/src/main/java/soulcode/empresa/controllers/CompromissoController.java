@@ -48,7 +48,7 @@ public class CompromissoController {
 		return ResponseEntity.created(uri).build();
 	}
 
-	@PutMapping("/funcionario/compromisso/{id_compromissso}/{id_funcionario}")
+	@PutMapping("/funcionario/compromisso/{id_compromisso}/{id_funcionario}")
 	public ResponseEntity<Compromisso> editarCompromisso(@RequestBody Compromisso compromisso,@PathVariable Integer id_compromisso,@PathVariable Integer id_funcionario){
 		compromissoService.editarCompromissso(compromisso, id_compromisso, id_funcionario);
 		return ResponseEntity.noContent().build();	

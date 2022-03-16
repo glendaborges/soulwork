@@ -41,7 +41,7 @@ public class Compromisso {
 	@Enumerated(EnumType.STRING)
 	private StatusServico con_status;
 	
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn(name = "id_funcionario")
 	@JsonIgnore
 	private Funcionario funcionario;
