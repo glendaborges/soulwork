@@ -1,19 +1,36 @@
-/* .container-card{
-  height: 100%;
-} */
+.container-card{
+  height: 79%;
+}
 .title{
   padding: 25px;
   font-weight: 600;
 }
 .card {
-  width: 250px;
-  height: 320px;
+  width: 270px;
+  height: 315px;
   border-radius: 10px;
-  box-shadow: 1px 5px 35px 0px #a5a5a56b;
-  padding: 20px;
  }
+ .btn-menu{
+  border: none;
+  background-color: transparent;
+  color: #142C63;
+  font-size: 20px;
+ 
+}
+.btns-actions{
+  font-size: 24px;
+  color: #142C63;
 
- .card .picture,.card .name,.card .jobtitle,.card .buttons {
+}
+.ac{
+  cursor: pointer;
+  transition: 300ms;
+}
+.ac:hover{
+  font-size: 28px;
+  color: #0d1c41;
+}
+ .card .picture,.card .name,.card .jobtitle, .card .btns-actions {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,41 +42,23 @@
  }
 
  .card .img{
-   width: 75%;
-   height: 150px;
+   width: 130px;
+   height: 130px;
    border-radius: 100%;
    object-fit: cover;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+ }
+ .bg-card{
+   background-color: #dfe2eb;
+   border-radius: 10px 10px 0 0 ;
+   height: 150px;
+   
  }
 
  .card .picture p {
   font-size: .8em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
  }
-
- .buttons > div {
-  padding: .5em;
- }
-
-.buttons  button {
-   width: 50px;
-  padding: .5em;
-  outline: none;
-  background: transparent;
-  border: 1px solid #0f0f0f6b;
-  border-radius: .4em;
-  transition: all .3s;
-  font-size: .9em;
- }
-
- .button1 button:hover{
-  background: #971212;
-  color: #f3f0f0;
- }
- .button2 button:hover{
-  background: #056337;
-  color: #f3f0f0;
- }
-
 
  .card .name p {
   margin-top: 8%;
@@ -136,17 +135,6 @@
   height: 45px;
   border-radius: 100%;
   border: none;
-  background: #142C63;
-  box-shadow: 6px 6px 12px #dfdddd,
-             -6px -6px 12px #ffffff;
-  color: #ffffff;
-}
-
-.btn-menu{
-  width: 45px;
-  height: 45px;
-  border: none;
-  border-radius: 100%;
   background: #142C63;
   box-shadow: 6px 6px 12px #dfdddd,
              -6px -6px 12px #ffffff;

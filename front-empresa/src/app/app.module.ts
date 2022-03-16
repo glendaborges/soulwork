@@ -22,6 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AgendaFuncComponent } from './components/agenda-func/agenda-func.component';
 
 @NgModule({
@@ -51,7 +52,8 @@ import { AgendaFuncComponent } from './components/agenda-func/agenda-func.compon
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    CarouselModule
 
 
   ],

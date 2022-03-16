@@ -83,8 +83,44 @@
                   <td>{{i.con_localizacao}}</td>
                   <td>{{i.con_status}}</td>
                   <td *ngIf="i.con_status == 'PENDENTE'">
-                    <button class="btn btn-light" (click)="concluirCompromisso(i.id_compromisso,i)"><i  class='bx bx-check' ></i></button>
-                    <button class="btn btn-light" (click)="cancelarCompromisso(i.id_compromisso, i)"><i class='bx bx-task-x'></i></button>
+                    <button class="btn btn-light" (click)="open(modalConcluir)"><i  class='bx bx-check' ></i></button>
+                    <button class="btn btn-light" (click)="open(modalCancelar)"><i class='bx bx-task-x'></i></button>
+                    <!-- / MODAL CONCLUSÃO  DE EVENTO-->
+                    <ng-template #modalConcluir let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="excluir">Aviso</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Deseja realmente concluir o evento de <strong>{{i.con_nome}}</strong>?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
+                        <button type="button" class="btn btn-del"
+                          (click)="concluirCompromisso(i.id_compromisso,i);modal.close('Save click')"><span>Salvar</span></button>
+                      </div>
+                    </ng-template>
+                    <!-- / CONCLUSÃO  DE EVENTO -->
+                    <!-- / MODAL CANCELAMENTO  DE EVENTO-->
+                    <ng-template #modalCancelar let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="excluir">Aviso</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Deseja realmente cancelar o evento de <strong>{{i.con_nome}}</strong>?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
+                        <button type="button" class="btn btn-del"
+                          (click)="cancelarCompromisso(i.id_compromisso, i);modal.close('Save click')"><span>Salvar</span></button>
+                      </div>
+                    </ng-template>
+                    <!-- /  CANCELAMENTO   DE EVENTO -->
                   </td>
                 </tr>
               </tbody>

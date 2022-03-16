@@ -1,3 +1,4 @@
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Endereco } from './../../models/endereco';
 import { EnderecoService } from './../../services/endereco.service';
 import { Funcionario } from './../../models/funcionario';
@@ -43,6 +44,33 @@ export class CardsFunComponent implements OnInit {
   enderecoFuncionario!:Endereco
   foto:any
   cargos:Cargo[] = []
+
+  // carrossel
+  customOptions: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: false,
+    pullDrag: false,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: false
+  }
+
 
   constructor(
     private funcionarioService: FuncionarioService,
