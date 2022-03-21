@@ -9,6 +9,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { CargoService } from 'src/app/services/cargo.service';
 import { Cargo } from 'src/app/models/cargo';
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cards-fun',
@@ -44,6 +45,7 @@ export class CardsFunComponent implements OnInit {
   enderecoFuncionario!:Endereco
   foto:any
   cargos:Cargo[] = []
+  infoCargo?:Cargo
 
   // carrossel
   customOptions: OwlOptions = {
@@ -75,16 +77,27 @@ export class CardsFunComponent implements OnInit {
   constructor(
     private funcionarioService: FuncionarioService,
     private router: Router,
-    private route: ActivatedRoute, private modalService: NgbModal, private cargoService:CargoService, private http:HttpClient, private enderecoService:EnderecoService
+    private route: ActivatedRoute, private modalService: NgbModal, private cargoService:CargoService, private http:HttpClient, private enderecoService:EnderecoService, private location:Location
   ) {
     this.id_cargo = this.route.snapshot.paramMap.get('id_cargo')!;
+
   }
 
   ngOnInit() {
     this.pegarFunCargo()
     this.buscarCargos()
+    this.pegarCargo()
     // this.pegarUmFunc()
   }
+
+  pegarCargo(){
+    this.cargoService.buscarUm(this.id_cargo).subscribe(res => {
+      this.infoCargo = res
+
+    })
+
+    }
+
 
   pegarFunCargo() {
     this.funcionarioService.buscarFunCargo(this.id_cargo).subscribe((res) => {
@@ -109,7 +122,8 @@ export class CardsFunComponent implements OnInit {
 
   deletarFun( id_fun:string){
     this.funcionarioService.deletarFun(id_fun).subscribe({
-      complete:() =>{ this.funcionarioService.mensagem("Funcionário excluído com sucesso")},
+      complete:() =>{ this.funcionarioService.mensagem("Funcionário excluído com sucesso")
+                      this.pegarFunCargo()},
       error: () => this.funcionarioService.mensagem("Erro ao excluir funcionário")
     })
   }
@@ -118,6 +132,7 @@ export class CardsFunComponent implements OnInit {
     this.funcionarioService.cadastrarFun(this.funcionario,this.id_cargo).subscribe({
       complete: () =>{
         this.funcionarioService.mensagem("Funcionário cadastrado com sucesso")
+        // this.funcionario.func_img = 'default-img.png'
         this.pegarFunCargo()
       },
       error: () => this.funcionarioService.mensagem("Erro ao cadastrar funcionário")
@@ -129,8 +144,8 @@ export class CardsFunComponent implements OnInit {
     this.funcionarioService.editarFun(this.funcionario.id_funcionario, this.funcionario.id_cargo, this.funcionario).subscribe({
       complete: () => {this.funcionarioService.mensagem("Funcionário editado com sucesso")
                        this.router.navigate([`/funcionarios/${this.funcionario.id_cargo}`])
-                      console.log(this.funcionario) },
-      error: () =>{ this.funcionarioService.mensagem("não foi possível editar o aluno")}
+                       this.pegarFunCargo() },
+      error: () =>{ this.funcionarioService.mensagem("não foi possível editar o funcioário!")}
     })
   }
 
@@ -195,7 +210,7 @@ export class CardsFunComponent implements OnInit {
 
   open(content: any) {
 
-    this.modalService.open(content, { size: 'md' }).result.then(
+    this.modalService.open(content, { size: 'md',centered: true }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
       },

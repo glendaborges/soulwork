@@ -4,7 +4,9 @@ import { ListarCargosComponent } from './components/listar-cargos/listar-cargos.
 import { HomeComponent } from './templates/home/home.component';
 import { FooterComponent } from './templates/footer/footer.component';
 import { HeaderComponent } from './templates/header/header.component';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { CurrencyPipe, registerLocaleData } from '@angular/common';
+import locale from '@angular/common/locales/pt'
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +26,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AgendaFuncComponent } from './components/agenda-func/agenda-func.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+registerLocaleData(locale)
 
 @NgModule({
   declarations: [
@@ -53,11 +58,12 @@ import { AgendaFuncComponent } from './components/agenda-func/agenda-func.compon
     MatMenuModule,
     MatIconModule,
     MatDatepickerModule,
-    CarouselModule
+    CarouselModule,
+    MatTooltipModule
 
 
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

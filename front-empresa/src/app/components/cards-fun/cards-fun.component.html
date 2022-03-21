@@ -1,6 +1,7 @@
 <div class="container container-card">
   <div class="d-flex container-title">
-    <h2 class="text-center title mt-5">Funcionários</h2>
+    <h4 class="text-center title mt-5"> {{infoCargo?.car_nome}} <i class='bx bx-chevrons-right'></i><span> Funcionários</span></h4>
+
     <button (click)="open(modalCadastrar)" class="cssbuttons-io-button mt-5"> Cadastrar
       <div class="icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -11,7 +12,7 @@
   </div>
   <div class="container row mt-5 ">
     <div *ngIf="funcionarios.length == 0" style="height: 55vh;">
-      <mat-card>Nenhum funcionário cadastrado!</mat-card>
+      <mat-card class="mat-elevation-z5">Nenhum funcionário cadastrado!</mat-card>
     </div>
     <!-- <div *ngFor="let fun of funcionarios" class="card col-5 mx-4 my-4"> -->
     <owl-carousel-o [options]="customOptions">
@@ -22,7 +23,7 @@
               <button mat-icon-button [matMenuTriggerFor]="menu" class="btn-menu  ">
                 <i class="bi bi-gear-fill"></i>
               </button>
-              <mat-menu #menu="matMenu" >
+              <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="open(modalUploadFoto)">
                   <mat-icon> local_see</mat-icon>
                   <span>Adicionar Foto</span>
@@ -35,33 +36,35 @@
                   <mat-icon>clear</mat-icon>
                   <span>Excluir</span>
                 </button>
-                <button mat-menu-item (click)="open(modaLEndereco);buscarEndereco(fun.id_funcionario)">
-                  <mat-icon> my_location</mat-icon>
-                  <span>Endereço</span>
-                </button>
-                <button mat-menu-item routerLink="/funcionario/agenda/{{fun.id_funcionario}}">
-                  <mat-icon> event_note</mat-icon>
-                  <span>Agenda</span>
-                </button>
               </mat-menu>
-              
-                <div class="picture mt-2">
-                  <img src="../../../assets/img/{{fun.func_img | slice:99}}" alt="{{fun.func_img| slice:99}}" class="img">
-                </div>
+
+              <div class="picture mt-2">
+              <div *ngIf="fun.func_img == undefined; then fotoDefault; else fotoFunc"></div>
+                <ng-template #fotoFunc>
+                  <img class="img" src="../../../assets/img/{{fun.func_img}}"
+                 >
+                </ng-template>
+                <ng-template #fotoDefault>
+                  <img class="img-defaut" src="../../../assets/img/default-img.png"
+                    >
+                </ng-template>
+                <!-- <img src="../../../assets/img/{{fun.func_img}}" alt="{{fun.func_img}}" class="img"> -->
+              </div>
             </div>
-              <div class="name mt-3">
-                <p>{{fun.func_nome}}</p>
-              </div>
-              <div class="jobtitle">
-                <p>{{fun.func_formacao}}</p>
-              </div>
-              <div class="btns-actions mb-3">
-                <i  (click)="open(modaLEndereco);buscarEndereco(fun.id_funcionario)" class='bx bx-current-location mx-2 ac' ></i>
-                <i routerLink="/funcionario/agenda/{{fun.id_funcionario}}" class='bx bx-calendar-event mx-2 ac'></i>
-              </div>
+            <div class="name mt-3">
+              <p>{{fun.func_nome}}</p>
+            </div>
+            <div class="jobtitle">
+              <p>{{fun.func_formacao}}</p>
+            </div>
+            <div class="btns-actions mb-3">
+              <i (click)="open(modaLEndereco);buscarEndereco(fun.id_funcionario)"
+                class='bx bx-current-location mx-2 ac' matTooltip="Endereço"></i>
+              <i routerLink="/funcionario/agenda/{{fun.id_funcionario}}" class='bx bx-calendar-event mx-2 ac'  matTooltip="Agenda"></i>
+            </div>
 
             <!-- **** MODAL DE ENDEREÇO **** -->
-            <ng-template #modaLEndereco let-modal>
+            <ng-template #modaLEndereco let-modal class="mat-elevation-z20">
               <div class="modal-header">
                 <h5 class="modal-title" id="endereco">Endereço - <strong>{{fun.func_nome}}</strong></h5>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -156,7 +159,7 @@
 
             <!-- **** // MODAL DE ENDEREÇO **** -->
             <!-- **** MODAL DE uploadFoto **** -->
-            <ng-template #modalUploadFoto let-modal>
+            <ng-template #modalUploadFoto let-modal class="mat-elevation-z20">
               <div class="modal-header">
                 <h4 class="modal-title" id="uploadFoto">Definir Foto para <strong>{{fun.func_nome}}</strong></h4>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -174,7 +177,7 @@
             </ng-template>
             <!-- **** // MODAL DE uploadFoto **** -->
             <!-- **** MODAL DE EXCLUIR **** -->
-            <ng-template #modalExcluir let-modal>
+            <ng-template #modalExcluir let-modal class="mat-elevation-z20">
               <div class="modal-header">
                 <h4 class="modal-title" id="excluir">Aviso</h4>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -182,7 +185,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <p>Deseja realmente excluir o cargo de <strong>{{fun.func_nome}}</strong>?</p>
+                <p>Deseja realmente excluir o funcionário <strong>{{fun.func_nome}}</strong>?</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
@@ -193,7 +196,7 @@
             <!-- **** // MODAL DE EXCLUIR **** -->
             <!-- **** MODAL DE EDITAR **** -->
             <ng-template #modalEditar let-modal>
-              <div class="background">
+              <div class="background mat-elevation-z20">
                 <div class="modal-header">
                   <h4 class="modal-title" class=" text-center">Editar Funcionário</h4>
                   <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -216,7 +219,7 @@
                       </mat-form-field>
                     </div>
                     <div class="mb-3">
-                      <select name="id_cargo" [(ngModel)]="funcionario.id_cargo">
+                      <select class="form-select" name="id_cargo" [(ngModel)]="funcionario.id_cargo">
                         <option *ngFor="let i of cargos" value="{{i.id_cargo}}"> {{i.car_nome}} </option>
                       </select>
                     </div>
@@ -242,7 +245,7 @@
 
   <!-- **** MODAL DE CADASTRO **** -->
   <ng-template #modalCadastrar let-modal>
-    <div class="background">
+    <div class="background mat-elevation-z20">
       <div class="modal-header">
         <h4 class="modal-title" class=" text-center">Cadastrar Funcionário</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">

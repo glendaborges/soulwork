@@ -34,7 +34,7 @@ constructor(private cargoService: CargoService, public dialog: MatDialog, privat
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.MostrarCargos();
     });
   }
 
@@ -52,6 +52,7 @@ constructor(private cargoService: CargoService, public dialog: MatDialog, privat
     this.cargoService.deletarCargo(id).subscribe({
       complete: () => {
         this.cargoService.mensagem('Cargo excluído com sucesso')
+        this.MostrarCargos();
 
       },
       error: () => {
@@ -65,6 +66,7 @@ constructor(private cargoService: CargoService, public dialog: MatDialog, privat
     this.cargoService.editarCargo(cargo).subscribe({
       complete: () => {
         this.cargoService.mensagem('Cargo editado com sucesso!')
+        this.MostrarCargos();
         this.router.navigate(['/cargos']);
       },
     });
@@ -72,7 +74,7 @@ constructor(private cargoService: CargoService, public dialog: MatDialog, privat
 
   open(content: any) {
 
-    this.modalService.open(content, { size: 'md' }).result.then(
+    this.modalService.open(content, { size: 'md',centered: true }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
       },

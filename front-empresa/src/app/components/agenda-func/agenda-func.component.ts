@@ -59,7 +59,7 @@ export class AgendaFuncComponent implements OnInit {
   ngOnInit() {
     this.listarCompromissos()
     this.buscarFunc()
-    this.getDiasData(5,2022)
+    this.getDiasData(4,2022)
   }
 
   getDiasData(mes:any, ano:any){
@@ -96,7 +96,7 @@ export class AgendaFuncComponent implements OnInit {
 
   open(content: any) {
 
-    this.modalService.open(content, { size: 'md' }).result.then(
+    this.modalService.open(content, { size: 'md',centered: true }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
       },
@@ -145,6 +145,13 @@ export class AgendaFuncComponent implements OnInit {
       error: () => { this.funcionarioService.mensagem("Erro ao adicionar evento!")}
     })
 
+  }
+  resetarModal(){
+    this.funcionario = {
+      func_nome:'',
+      func_cpf: '',
+      func_formacao:''
+    }
   }
 
   concluirCompromisso(id_compromisso:string, compromisso:Compromisso){

@@ -22,14 +22,14 @@
             <th scope="row">{{cargo.id_cargo}}</th>
             <td>{{cargo.car_nome}}</td>
             <td>{{cargo.car_atribuicao}}</td>
-            <td><i routerLink="/funcionarios/{{cargo.id_cargo}}" class='bx bxs-user'></i></td>
+            <td ><i routerLink="/funcionarios/{{cargo.id_cargo}}" class='bx bxs-user mx-5'></i></td>
             <!-- **** FUNÇÃO DE EDITAR -->
-            <td> <i (click)="open(modalEditar)" class='bx bx-edit mx-2'></i>
+            <td> <i (click)="open(modalEditar)" class='bx bx-edit mx-2'  matTooltip="Editar"></i>
               <!-- **** MODAL DE EDITAR **** -->
               <ng-template #modalEditar let-modal>
-                <div class="background">
+                <div class="background mat-elevation-z20">
                   <div class="modal-header">
-                    <h4 class="modal-title" class=" text-center">Editar cargo</h4>
+                    <h4 class="mx-auto title" >Editar cargo</h4>
                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -61,7 +61,7 @@
               </ng-template>
 
               <!-- **** FUNÇÃO DE EXCLUIR **** -->
-              <i (click)="open(modalExcluir)" class='bx bx-trash'></i>
+              <i (click)="open(modalExcluir)" class='bx bx-trash'  matTooltip="Excluir"></i>
               <!-- **** MODAL DE EXCLUIR **** -->
               <ng-template #modalExcluir let-modal>
                 <div class="modal-header">

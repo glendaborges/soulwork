@@ -2,6 +2,7 @@ package soulcode.empresa.models;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -35,13 +36,13 @@ public class Compromisso {
 	
 	@DateTimeFormat(pattern="dd-MM-yyyy")
 	@Column(columnDefinition = "date", nullable = false)
-	@Temporal(TemporalType.DATE)  
+//	@Temporal(TemporalType.DATE)  
 	private Date con_data;
 	
 	@Enumerated(EnumType.STRING)
 	private StatusServico con_status;
 	
-	@ManyToOne 
+	@ManyToOne(cascade=CascadeType.ALL) 
 	@JoinColumn(name = "id_funcionario")
 	@JsonIgnore
 	private Funcionario funcionario;

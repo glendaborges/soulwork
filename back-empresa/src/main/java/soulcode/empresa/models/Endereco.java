@@ -1,5 +1,6 @@
 package soulcode.empresa.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Endereco {
 	@Column(nullable = false, length = 200)
 	private String end_estado;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "id_funcionario", unique=true)// atribui o valor da chave primária da turma ao "id_turma"// chave estrangeira 
 	@JsonIgnore
 	private Funcionario funcionario;

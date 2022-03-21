@@ -4,7 +4,9 @@
 .title{
   padding: 25px;
   font-weight: 600;
+  color: #0d1c41;
 }
+
 .card {
   width: 270px;
   height: 315px;
@@ -15,7 +17,7 @@
   background-color: transparent;
   color: #142C63;
   font-size: 20px;
- 
+
 }
 .btns-actions{
   font-size: 24px;
@@ -48,11 +50,18 @@
    object-fit: cover;
    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
  }
+ .card .img-defaut{
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+ }
  .bg-card{
    background-color: #dfe2eb;
    border-radius: 10px 10px 0 0 ;
    height: 150px;
-   
+
  }
 
  .card .picture p {

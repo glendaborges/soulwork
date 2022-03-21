@@ -31,7 +31,7 @@ public class UploadFileController {
 		String uploadDir = "/Users/glend/OneDrive/Documentos/Programacao/SoulCode/Projeto Empresa/front-empresa/src/assets/img";
 //		C:\Users\glend\OneDrive\Documentos/PROGRAMAÇÃO/SoulCode/front-empresa/src/assets/img
 
-		String nomeMaisCaminho = uploadDir + "/" + nome;
+		String nomeMaisCaminho = nome;
 
 		Funcionario funcionario = funcionarioService.salvarFoto(id_funcionario, nomeMaisCaminho);
 
