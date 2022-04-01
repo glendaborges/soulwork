@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import soulcode.empresa.models.Cargo;
 import soulcode.empresa.models.Funcionario;
 import soulcode.empresa.respositories.FuncionarioRepository;
+import soulcode.empresa.services.exceptions.ObjectNotFoundException;
 
 
 
@@ -30,7 +31,7 @@ public class FuncionarioService {
 //	listar um aluno
 	public Funcionario buscarUmFunc(Integer id_funcionario) {
 		Optional<Funcionario> funcionario = funcionarioRepository.findById(id_funcionario);
-		return funcionario.orElseThrow();
+		return funcionario.orElseThrow(()-> new ObjectNotFoundException("Funcionario não encontrado!"));
 	}
 	
 	public List<Funcionario> buscarFunCargo(Integer id_turma){

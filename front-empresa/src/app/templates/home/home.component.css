@@ -4,7 +4,7 @@ main{
 }
 .home {
   width: 93%;
-  height: 90%;
+  height: 100%;
   background-image: url("../../../assets/img/b4.png");
   background-size: cover;
   margin: 0 auto;
@@ -19,7 +19,7 @@ main{
 }
 
 .home-content {
-  width: 50%;
+  width: 45%;
   height: 60%;
   background: rgba( 255, 255, 255, 0.25 );
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

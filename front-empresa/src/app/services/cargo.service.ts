@@ -7,7 +7,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
   providedIn: 'root',
 })
 export class CargoService {
-  baseUrl: String = 'http://localhost:8080/empresa';
+  baseUrl: String = 'https://backend-empresa-deploy.herokuapp.com/empresa';
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 

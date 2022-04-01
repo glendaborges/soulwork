@@ -8,7 +8,7 @@ import { MatSnackBar } from "@angular/material/snack-bar"
   providedIn: 'root',
 })
 export class FuncionarioService {
-  baseUrl: String = 'http://localhost:8080/empresa';
+  baseUrl: String = 'https://backend-empresa-deploy.herokuapp.com/empresa';
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
@@ -36,7 +36,7 @@ export class FuncionarioService {
     const url = `${this.baseUrl}/funcionario/${id_func}?cargo=${id_cargo}`;
     return this.http.put<Funcionario>(url, funcionario)
   }
-  // http://localhost:8080/empresa/funcionario/4?cargo=2
+  // https://backend-empresa-deploy.herokuapp.com/empresa/funcionario/4?cargo=2
 
   buscarPeloCpf(func_cpf:string):Observable<Funcionario>{
     const url = `${this.baseUrl}/funcionario-cpf/${func_cpf}`;

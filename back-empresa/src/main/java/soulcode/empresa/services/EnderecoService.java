@@ -10,6 +10,7 @@ import soulcode.empresa.models.Endereco;
 import soulcode.empresa.models.Funcionario;
 import soulcode.empresa.respositories.EnderecoRepository;
 import soulcode.empresa.respositories.FuncionarioRepository;
+import soulcode.empresa.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class EnderecoService {
@@ -30,7 +31,7 @@ public class EnderecoService {
 
 	public Endereco listarUmEndereco(Integer id_endereco) {
 		Optional<Endereco> endereco = enderecoRepository.findById(id_endereco);
-		return endereco.orElseThrow();
+		return endereco.orElseThrow(()-> new ObjectNotFoundException("endereço não encontrado!"));
 	}
 
 	public Endereco listarEnderecoFunc(Integer id_funcionario) {

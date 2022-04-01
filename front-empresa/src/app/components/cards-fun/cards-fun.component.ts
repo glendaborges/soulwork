@@ -167,7 +167,7 @@ export class CardsFunComponent implements OnInit {
 
       // console.log(`http://localhost:8080/escola/envio/${this.idProfCadastrado}?nome=${nome}`)
 
-      this.http.post(`http://localhost:8080/empresa/envio/${id_funcionario}?nome=${nome}`, formData).subscribe({
+      this.http.post(`https://backend-empresa-deploy.herokuapp.com/empresa/envio/${id_funcionario}?nome=${nome}`, formData).subscribe({
         complete: () => console.log("foto enviada")
       })
       this.funcionarioService.mensagem("foto anexada ao funcionário " + func_nome)

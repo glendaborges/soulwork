@@ -10,6 +10,7 @@ import soulcode.empresa.models.Compromisso;
 import soulcode.empresa.models.Funcionario;
 import soulcode.empresa.models.StatusServico;
 import soulcode.empresa.respositories.CompromissoRepository;
+import soulcode.empresa.services.exceptions.ObjectNotFoundException;
 
 
 @Service
@@ -24,7 +25,7 @@ public class CompromissoService {
 	
 	public Compromisso buscarUmCompromisso(Integer id_compromisso) {
 		 Optional<Compromisso> compromisso = compromissoRepository.findById(id_compromisso);
-		return compromisso.orElseThrow();
+		return compromisso.orElseThrow(()-> new ObjectNotFoundException("Compromisso não encontrado!"));
 	}
 	
 	public List<Compromisso> buscarCompromissoFun(Integer id_funcionario){
