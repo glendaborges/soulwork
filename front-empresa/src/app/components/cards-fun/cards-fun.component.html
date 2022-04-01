@@ -41,7 +41,7 @@
               <div class="picture mt-2">
               <div *ngIf="fun.func_img == undefined; then fotoDefault; else fotoFunc"></div>
                 <ng-template #fotoFunc>
-                  <img class="img" src="../../../assets/img/{{fun.func_img}}"
+                  <img class="img" src="{{fun.func_img}}"
                  >
                 </ng-template>
                 <ng-template #fotoDefault>

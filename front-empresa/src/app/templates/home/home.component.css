@@ -1,8 +1,13 @@
+main{
+  width: 100%;
+  height: 83%;
+}
 .home {
-  height: 80%;
+  width: 93%;
+  height: 90%;
   background-image: url("../../../assets/img/b4.png");
   background-size: cover;
-
+  margin: 0 auto;
 
 }
 
@@ -15,7 +20,7 @@
 
 .home-content {
   width: 50%;
-  height: 480px;
+  height: 60%;
   background: rgba( 255, 255, 255, 0.25 );
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
@@ -120,3 +125,37 @@ button {
  button:hover .button-text {
   color: #fff;
  }
+
+ @media(max-width:440px){
+  .home-content {
+    width: 90%;
+    height: 530px;
+  }
+  h1{
+    font-size: 30px;
+  }
+  .home-text{
+    font-size: 16px;
+  }
+  .home{
+    height: 100%;
+  }
+
+ }
+
+ @media(max-width:380px){
+
+  .home-content {
+    height: 500px;
+  }
+  h1{
+    font-size: 20px;
+  }
+  .home-text{
+    font-size: 12px;
+  }
+  .home{
+    height: 100%;
+  }
+ }
+
