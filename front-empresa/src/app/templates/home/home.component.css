@@ -2,6 +2,9 @@ main{
   width: 100%;
   height: 83%;
 }
+.learn-more-mobile{
+  display: none;
+}
 .home {
   width: 93%;
   height: 100%;
@@ -19,7 +22,7 @@ main{
 }
 
 .home-content {
-  width: 45%;
+  width: 38%;
   height: 60%;
   background: rgba( 255, 255, 255, 0.25 );
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -32,10 +35,11 @@ main{
 .home-text{
   padding: 45px;
   margin-left: 15px;
+  font-size: 20px;
 }
 h1{
   font-weight: 600;
-  font-size: 55px;
+  font-size: 60px;
   /* color: #142C63; */
 }
 button {
@@ -53,8 +57,9 @@ button {
  }
 
  button.learn-more {
-  width: 12rem;
+  width: 13rem;
   height: auto;
+  font-size: 18px;
  }
 
  button.learn-more .circle {
@@ -146,16 +151,25 @@ button {
  @media(max-width:380px){
 
   .home-content {
-    height: 500px;
+    height: 380px;
+  }
+  .home-text{
+    padding: 20px;
   }
   h1{
-    font-size: 20px;
+    font-size: 24px;
   }
   .home-text{
     font-size: 12px;
   }
   .home{
     height: 100%;
+  }
+  button.learn-more {
+    display: none;
+  }
+  .learn-more-mobile{
+    display: block;
   }
  }
 
