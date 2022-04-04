@@ -131,7 +131,28 @@ button {
   color: #fff;
  }
 
- @media(max-width:440px){
+ @media (max-width:1500px){
+  .home-content {
+    width: 60%;
+    height: 490px;
+  }
+ }
+
+
+ @media (max-width:1040px){
+  .home-content {
+    width: 70%;
+    height: 490px;
+  }
+  h1{
+    font-size: 40px;
+  }
+  .home-text{
+    padding: 35px;
+  }
+ }
+
+ @media(max-width:700px){
   .home-content {
     width: 90%;
     height: 530px;
@@ -151,7 +172,7 @@ button {
  @media(max-width:380px){
 
   .home-content {
-    height: 380px;
+    height: 370px;
   }
   .home-text{
     padding: 20px;
@@ -170,6 +191,19 @@ button {
   }
   .learn-more-mobile{
     display: block;
+    color: #fff;
+    background-color: #282936;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    transition: 300ms;
+  }
+  .learn-more-mobile:hover{
+    border: 1px solid #282936;
+    background-color: transparent;
+    color: black;
   }
  }
+
 

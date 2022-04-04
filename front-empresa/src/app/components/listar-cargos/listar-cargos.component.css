@@ -1,7 +1,13 @@
 .container-turma{
   height: 72.5%;
 }
-
+.btn-mobile{
+  display: none;
+}
+.table-main{
+  height: 600px;
+  overflow: auto;
+}
 
 i{
   font-size: 22px;
@@ -118,16 +124,21 @@ h5{
   color: transparent;
 }
 
-
-/* label{
-  font-weight: 600;
+@media(max-width:450px){
+  .container-turma{
+    height: 100%;
+  }
+  .btn-mobile{
+    display: block;
+    padding: 8px;
+    margin-top: 20px;
+    border: none;
+    background-color: #102350;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+  .cssbuttons-io-button{
+    display: none;
+  }
+  
 }
-input{
-  box-shadow: 4px 4px 12px #dfdddd,
-             -4px -4px 12px #ffffff;
-  border: none;
-}
-input:focus{
-  box-shadow: 4px 4px 12px #dfdddd,
-             -4px -4px 12px #ffffff;
-} */
