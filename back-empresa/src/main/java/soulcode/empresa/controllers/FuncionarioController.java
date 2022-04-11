@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import soulcode.empresa.models.Cargo;
@@ -73,6 +74,16 @@ public class FuncionarioController {
 				.toUri();
 		return ResponseEntity.created(uri).build();
 	}
+	
+// salvar foto 
+	@PostMapping("/funcionario-img/{id_funcionario}")
+	public ResponseEntity<String> salvarImgFunc(@PathVariable Integer id_funcionario,
+			@RequestParam(value = "nome") String nome){
+		Funcionario funcionario = funcionarioService.salvarFoto(id_funcionario, nome);
+		return ResponseEntity.ok("Arquivo enviado");
+	}
+		
+	
 	
 //	deletar
 	@DeleteMapping("/funcionario/{id_funcionario}")
