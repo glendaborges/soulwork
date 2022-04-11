@@ -1,7 +1,7 @@
 
-.container {
+.container-agenda {
   height: 75%;
-  font-family: 'Poppins'
+  font-family: 'Poppins';
 }
 
 .box-header {
@@ -10,12 +10,16 @@
 }
 
 .box-comp {
-  height: 600px;
+  display: flex;
+  gap: 45px;
+  justify-content: center;
+  height: 500px;
   padding: 28px;
 }
 
 .box-content {
   background-color: #f5f0f0;
+  width: 50%;
   padding: 35px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -267,3 +271,43 @@ input[type="date"], focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
 }
+@media(max-width:835px){
+  .box-header{
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+@media(max-width:450px){
+  .container-agenda{
+    height: 90%;
+  }
+  .box-comp {
+    flex-direction: column-reverse;
+    height: 70%;
+    gap: 0;
+  }
+  .box-content{
+    width: 100%;
+  }
+  .cssbuttons-io-button {
+    font-size: 10px;
+  }
+}
+@media(max-width:375px){
+  .box-calendar {
+    width: 100%;
+  }
+  .cssbuttons-io-button {
+    font-size: 10px;
+  }
+  .box-header{
+    flex-direction: column;
+    text-align: center;
+  }
+  mat-card{
+    font-size: 12px;
+  }
+
+}
+

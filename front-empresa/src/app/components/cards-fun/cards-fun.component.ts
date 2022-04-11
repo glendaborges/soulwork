@@ -51,7 +51,7 @@ export class CardsFunComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
     dots: true,
     navSpeed: 700,

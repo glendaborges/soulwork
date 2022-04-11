@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row mt-5 box-comp">
-    <section class="box-content mx-4 col-lg-7  col-md-12 mat-elevation-z9">
+<div class="container-agenda ">
+  <div class="box-comp mt-5">
+    <section class="box-content  mat-elevation-z9 mt-4">
       <div class="box-header">
         <div class="box-name">
           <h4 class="mt-2">Agenda <i class='bx bx-calendar-event' ></i></h4>
@@ -131,7 +131,7 @@
         <mat-card *ngIf="compromissos.length == 0"> Nenhum compromisso!</mat-card>
       </div>
     </section>
-    <section class="box-calendar mat-elevation-z20  mx-4 col-lg-6 col-md-12">
+    <section class="box-calendar mat-elevation-z20  mt-4">
       <div class="top-calendar">
         <i class='bx bxs-calendar'></i>
       </div>
@@ -158,7 +158,7 @@
 </div>
   <!-- **** MODAL DE CADASTRO **** -->
   <ng-template #modalCadastrar let-modal>
-    <div class="background mat-elevation-z20">
+    <div class="background mat-elevation-z20 " >
       <div class="modal-header">
         <h4 class="modal-title" class=" text-center">Adicionar Evento</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">

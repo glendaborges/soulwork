@@ -131,10 +131,24 @@ button {
   color: #fff;
  }
 
+ @media(max-height:900px){
+  .home-content {
+    width: 50%;
+    height: 490px;
+
+  }
+ }
+
  @media (max-width:1500px){
   .home-content {
-    width: 60%;
-    height: 490px;
+    width: 50%;
+    height: 450px;
+  }
+  h1{
+    font-size: 45px;
+  }
+  p{
+    font-size: 18px;
   }
  }
 
@@ -169,7 +183,7 @@ button {
 
  }
 
- @media(max-width:380px){
+ @media(max-width:380px ){
 
   .home-content {
     height: 370px;

@@ -194,3 +194,16 @@ h5{
 .btn-del i{
  color: transparent;
 }
+@media(max-height:900px)
+{
+  .container-card{
+   width: 85%;
+
+  }
+  .card {
+    width: 230px;
+    height: 290px;
+    border-radius: 10px;
+   }
+}
+
