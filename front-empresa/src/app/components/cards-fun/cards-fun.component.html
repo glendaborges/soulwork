@@ -1,26 +1,40 @@
 <div class="container container-card">
   <div class="d-flex container-title">
-    <h4 class="text-center title mt-5"> {{infoCargo?.car_nome}} <i class='bx bx-chevrons-right'></i><span> Funcionários</span></h4>
-
-    <button (click)="open(modalCadastrar)" class="cssbuttons-io-button mt-5"> Cadastrar
+    <h4 class="text-center title mt-5">
+      {{ infoCargo?.car_nome }} <i class="bx bx-chevrons-right"></i
+      ><span> Funcionários</span>
+    </h4>
+    <button (click)="open(modalCadastrar)" class="cssbuttons-io-button mt-5">
+      Cadastrar
       <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
           <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z" fill="currentColor"></path>
         </svg>
       </div>
     </button>
   </div>
-  <div class="container row mt-5 ">
-    <div *ngIf="funcionarios.length == 0" style="height: 55vh;">
-      <mat-card class="mat-elevation-z5">Nenhum funcionário cadastrado!</mat-card>
+  <div class="container row mt-5">
+    <div *ngIf="funcionarios.length == 0" style="height: 55vh">
+      <mat-card class="mat-elevation-z5"
+        >Nenhum funcionário cadastrado!</mat-card
+      >
     </div>
-    <!-- <div *ngFor="let fun of funcionarios" class="card col-5 mx-4 my-4"> -->
     <owl-carousel-o [options]="customOptions">
       <ng-container *ngFor="let fun of funcionarios">
         <ng-template carouselSlide>
           <div class="card">
             <div class="bg-card">
-              <button mat-icon-button [matMenuTriggerFor]="menu" class="btn-menu  ">
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                class="btn-menu"
+              >
                 <i class="bi bi-gear-fill"></i>
               </button>
               <mat-menu #menu="matMenu">
@@ -28,7 +42,10 @@
                   <mat-icon> local_see</mat-icon>
                   <span>Adicionar Foto</span>
                 </button>
-                <button mat-menu-item (click)="open(modalEditar);pegarUmFunc(fun.id_funcionario)">
+                <button
+                  mat-menu-item
+                  (click)="open(modalEditar); pegarUmFunc(fun.id_funcionario)"
+                >
                   <mat-icon>create</mat-icon>
                   <span>Editar</span>
                 </button>
@@ -39,47 +56,71 @@
               </mat-menu>
 
               <div class="picture mt-2">
-              <div *ngIf="fun.func_img == undefined; then fotoDefault; else fotoFunc"></div>
-                <ng-template #fotoFunc>
-                  <img class="img" src="{{fun.func_img}}"
-                 >
-                </ng-template>
-                <ng-template #fotoDefault>
-                  <img class="img-defaut" src="../../../assets/img/default-img.png"
-                    >
-                </ng-template>
-                <!-- <img src="../../../assets/img/{{fun.func_img}}" alt="{{fun.func_img}}" class="img"> -->
+                <img
+                  class="img"
+                  src="{{ fun.func_img }}"
+                  onerror="this.src='../../../assets/img/default-img.png'"
+                />
               </div>
             </div>
             <div class="name mt-3">
-              <p>{{fun.func_nome}}</p>
+              <p>{{ fun.func_nome }}</p>
             </div>
             <div class="jobtitle">
-              <p>{{fun.func_formacao}}</p>
+              <p>{{ fun.func_formacao }}</p>
             </div>
             <div class="btns-actions mb-3">
-              <i (click)="open(modaLEndereco);buscarEndereco(fun.id_funcionario)"
-                class='bx bx-current-location mx-2 ac' matTooltip="Endereço"></i>
-              <i routerLink="/funcionario/agenda/{{fun.id_funcionario}}" class='bx bx-calendar-event mx-2 ac'  matTooltip="Agenda"></i>
+              <i
+                (click)="
+                  open(modaLEndereco); buscarEndereco(fun.id_funcionario)
+                "
+                class="bx bx-current-location mx-2 ac"
+                matTooltip="Endereço"
+              ></i>
+              <i
+                routerLink="/funcionario/agenda/{{ fun.id_funcionario }}"
+                class="bx bx-calendar-event mx-2 ac"
+                matTooltip="Agenda"
+              ></i>
             </div>
 
             <!-- **** MODAL DE ENDEREÇO **** -->
             <ng-template #modaLEndereco let-modal class="mat-elevation-z20">
               <div class="modal-header">
-                <h5 class="modal-title" id="endereco">Endereço - <strong>{{fun.func_nome}}</strong></h5>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <h5 class="modal-title" id="endereco">
+                  Endereço - <strong>{{ fun.func_nome }}</strong>
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  aria-label="Close"
+                  (click)="modal.dismiss('Cross click')"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div *ngIf="enderecoFuncionario == null">
                   <div *ngIf="infoCadastro">
-                    <p>Esse funcionário não possui endereço cadastrado. <strong>Deseja realizar o cadastro</strong>?</p>
+                    <p>
+                      Esse funcionário não possui endereço cadastrado.
+                      <strong>Deseja realizar o cadastro</strong>?
+                    </p>
                     <div class="modal-footer">
-                      <button type="button" class=" btn btn-cancel"
-                        (click)="modal.close('Save click')">Cancelar</button>
-                      <button type="button" class="btn btn-cad" (click)="mostrarForm()"><span>Realizar
-                          Cadastro</span></button>
+                      <button
+                        type="button"
+                        class="btn btn-cancel"
+                        (click)="modal.close('Save click')"
+                      >
+                        Cancelar
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-cad"
+                        (click)="mostrarForm()"
+                      >
+                        <span>Realizar Cadastro</span>
+                      </button>
                     </div>
                   </div>
 
@@ -88,70 +129,134 @@
                       <div class="mb-3">
                         <mat-form-field appearance="legacy">
                           <mat-label>CEP</mat-label>
-                          <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_cep" name="end_cep">
+                          <input
+                            matInput
+                            digite...="digite..."
+                            [(ngModel)]="enderecoCad.end_cep"
+                            name="end_cep"
+                          />
                         </mat-form-field>
                       </div>
                       <div class="mb-3">
                         <mat-form-field appearance="legacy">
                           <mat-label>Estado</mat-label>
-                          <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_estado"
-                            name="end_estado">
+                          <input
+                            matInput
+                            digite...="digite..."
+                            [(ngModel)]="enderecoCad.end_estado"
+                            name="end_estado"
+                          />
                         </mat-form-field>
                       </div>
                       <div class="mb-3">
                         <mat-form-field appearance="legacy">
                           <mat-label>Cidade</mat-label>
-                          <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_cidade"
-                            name="end_cidade">
+                          <input
+                            matInput
+                            digite...="digite..."
+                            [(ngModel)]="enderecoCad.end_cidade"
+                            name="end_cidade"
+                          />
                         </mat-form-field>
                       </div>
                       <div class="mb-3">
                         <mat-form-field appearance="legacy">
                           <mat-label>Rua</mat-label>
-                          <input matInput placeholder="Placeholder" [(ngModel)]="enderecoCad.end_rua" name="end_rua">
+                          <input
+                            matInput
+                            digite...="digite..."
+                            [(ngModel)]="enderecoCad.end_rua"
+                            name="end_rua"
+                          />
                         </mat-form-field>
                       </div>
                     </form>
                     <div class="modal-footer">
-                      <button type="button" class=" btn btn-cancel"
-                        (click)="modal.close('Save click');fecharForm()">Cancelar</button>
-                      <button type="button" class="btn btn-cad"
-                        (click)="cadastrarEndereco(fun.id_funcionario);modal.close('Save click')"><span>Salvar</span></button>
+                      <button
+                        type="button"
+                        class="btn btn-cancel"
+                        (click)="modal.close('Save click'); fecharForm()"
+                      >
+                        Cancelar
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-cad"
+                        (click)="
+                          cadastrarEndereco(fun.id_funcionario);
+                          modal.close('Save click')
+                        "
+                      >
+                        <span>Salvar</span>
+                      </button>
                     </div>
                   </div>
-
                 </div>
                 <div *ngIf="enderecoFuncionario != null">
                   <form class="text-center">
                     <div class="mb-3">
                       <mat-form-field appearance="legacy">
                         <mat-label>CEP</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_cep" name="end_cep">
+                        <input
+                          matInput
+                          digite...="digite..."
+                          [(ngModel)]="endereco.end_cep"
+                          name="end_cep"
+                        />
                       </mat-form-field>
                     </div>
                     <div class="mb-3">
                       <mat-form-field appearance="legacy">
                         <mat-label>Estado</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_estado" name="end_estado">
+                        <input
+                          matInput
+                          digite...="digite..."
+                          [(ngModel)]="endereco.end_estado"
+                          name="end_estado"
+                        />
                       </mat-form-field>
                     </div>
                     <div class="mb-3">
                       <mat-form-field appearance="legacy">
                         <mat-label>Cidade</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_cidade" name="end_cidade">
+                        <input
+                          matInput
+                          digite...="digite..."
+                          [(ngModel)]="endereco.end_cidade"
+                          name="end_cidade"
+                        />
                       </mat-form-field>
                     </div>
                     <div class="mb-3">
                       <mat-form-field appearance="legacy">
                         <mat-label>Rua</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="endereco.end_rua" name="end_rua">
+                        <input
+                          matInput
+                          digite...="digite..."
+                          [(ngModel)]="endereco.end_rua"
+                          name="end_rua"
+                        />
                       </mat-form-field>
                     </div>
                   </form>
                   <div class="modal-footer">
-                    <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
-                    <button type="button" class="btn btn-cad"
-                      (click)="editarEndereco(fun.id_funcionario);modal.close('Save click')"><span>Salvar</span></button>
+                    <button
+                      type="button"
+                      class="btn btn-cancel"
+                      (click)="modal.close('Save click')"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-cad"
+                      (click)="
+                        editarEndereco(fun.id_funcionario);
+                        modal.close('Save click')
+                      "
+                    >
+                      <span>Salvar</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -161,18 +266,48 @@
             <!-- **** MODAL DE uploadFoto **** -->
             <ng-template #modalUploadFoto let-modal class="mat-elevation-z20">
               <div class="modal-header">
-                <h4 class="modal-title" id="uploadFoto">Definir Foto para <strong>{{fun.func_nome}}</strong></h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <h4 class="modal-title" id="uploadFoto">
+                  Definir Foto para <strong>{{ fun.func_nome }}</strong>
+                </h4>
+                <button
+                  type="button"
+                  class="close"
+                  aria-label="Close"
+                  (click)="modal.dismiss('Cross click')"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <input type="file" name="func_img" (change)="subirFoto($event, fun.func_nome, fun.id_funcionario)">
+              <div class="modal-body text-center">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Link da Imagem</mat-label>
+                  <input
+                    matInput
+                    digite...="digite..."
+                    [(ngModel)]="funcionario.func_img"
+                    name="func_img"
+                  />
+                </mat-form-field>
               </div>
               <div class="modal-footer">
-                <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
-                <button type="button" class="btn btn-cad"
-                  (click)="recarregar();modal.close('Save click')"><span>Salvar</span></button>
+                <button
+                  type="button"
+                  class="btn btn-cancel"
+                  (click)="modal.close('Save click')"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-cad"
+                  (click)="
+                    salvarFoto(fun.id_funcionario, fun);
+                    recarregar();
+                    modal.close('Save click')
+                  "
+                >
+                  <span>Salvar</span>
+                </button>
               </div>
             </ng-template>
             <!-- **** // MODAL DE uploadFoto **** -->
@@ -180,17 +315,39 @@
             <ng-template #modalExcluir let-modal class="mat-elevation-z20">
               <div class="modal-header">
                 <h4 class="modal-title" id="excluir">Aviso</h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <button
+                  type="button"
+                  class="close"
+                  aria-label="Close"
+                  (click)="modal.dismiss('Cross click')"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <p>Deseja realmente excluir o funcionário <strong>{{fun.func_nome}}</strong>?</p>
+                <p>
+                  Deseja realmente excluir o funcionário
+                  <strong>{{ fun.func_nome }}</strong
+                  >?
+                </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
-                <button type="button" class="btn btn-del"
-                  (click)="deletarFun(fun.id_funcionario);modal.close('Save click')"><span>Excluir</span></button>
+                <button
+                  type="button"
+                  class="btn btn-cancel"
+                  (click)="modal.close('Save click')"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-del"
+                  (click)="
+                    deletarFun(fun.id_funcionario); modal.close('Save click')
+                  "
+                >
+                  <span>Excluir</span>
+                </button>
               </div>
             </ng-template>
             <!-- **** // MODAL DE EXCLUIR **** -->
@@ -198,8 +355,15 @@
             <ng-template #modalEditar let-modal>
               <div class="background mat-elevation-z20">
                 <div class="modal-header">
-                  <h4 class="modal-title" class=" text-center">Editar Funcionário</h4>
-                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <h4 class="modal-title" class="text-center">
+                    Editar Funcionário
+                  </h4>
+                  <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"
+                  >
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -208,34 +372,60 @@
                     <div class="mb-3">
                       <mat-form-field appearance="legacy">
                         <mat-label>Nome</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_nome" name="func_nome">
+                        <input
+                          matInput
+                          digite...="digite..."
+                          [(ngModel)]="funcionario.func_nome"
+                          name="func_nome"
+                        />
                       </mat-form-field>
                     </div>
                     <div class="mb-3">
                       <mat-form-field appearance="legacy">
                         <mat-label>Cidade</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_formacao"
-                          name="func_cidade">
+                        <input
+                          matInput
+                          digite...="digite..."
+                          [(ngModel)]="funcionario.func_formacao"
+                          name="func_cidade"
+                        />
                       </mat-form-field>
                     </div>
                     <div class="mb-3">
-                      <select class="form-select" name="id_cargo" [(ngModel)]="funcionario.id_cargo">
-                        <option *ngFor="let i of cargos" value="{{i.id_cargo}}"> {{i.car_nome}} </option>
+                      <select
+                        class="form-select"
+                        name="id_cargo"
+                        [(ngModel)]="funcionario.id_cargo"
+                      >
+                        <option
+                          *ngFor="let i of cargos"
+                          value="{{ i.id_cargo }}"
+                        >
+                          {{ i.car_nome }}
+                        </option>
                       </select>
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <div class="container-btn py-2
-       text-center">
-                    <button (click)="editarFunc();modal.close('Save click')" class="btn btn-cad">Salvar</button>
-                    <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">Cancelar</button>
+                  <div class="container-btn py-2 text-center">
+                    <button
+                      (click)="editarFunc(); modal.close('Save click')"
+                      class="btn btn-cad"
+                    >
+                      Salvar
+                    </button>
+                    <button
+                      (click)="modal.close('Save click')"
+                      class="btn btn-cancel mx-3"
+                    >
+                      Cancelar
+                    </button>
                   </div>
                 </div>
               </div>
             </ng-template>
             <!-- novo -->
-
           </div>
         </ng-template>
       </ng-container>
@@ -247,8 +437,13 @@
   <ng-template #modalCadastrar let-modal>
     <div class="background mat-elevation-z20">
       <div class="modal-header">
-        <h4 class="modal-title" class=" text-center">Cadastrar Funcionário</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <h4 class="modal-title" class="text-center">Cadastrar Funcionário</h4>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -257,29 +452,54 @@
           <div class="mb-3">
             <mat-form-field appearance="legacy">
               <mat-label>Nome</mat-label>
-              <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_nome" name="func_nome">
+              <input
+                matInput
+                digite...="digite..."
+                [(ngModel)]="funcionario.func_nome"
+                name="func_nome"
+              />
             </mat-form-field>
           </div>
           <div class="mb-3">
             <mat-form-field appearance="legacy">
               <mat-label>CPF</mat-label>
-              <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_cpf" name="func_cpf">
+              <input
+                matInput
+                digite...="digite..."
+                [(ngModel)]="funcionario.func_cpf"
+                name="func_cpf"
+              />
             </mat-form-field>
           </div>
           <div class="mb-3">
             <mat-form-field appearance="legacy">
-              <mat-label>Cidade</mat-label>
-              <input matInput placeholder="Placeholder" [(ngModel)]="funcionario.func_formacao" name="func_cidade">
+              <mat-label>Formação</mat-label>
+              <input
+                matInput
+                digite...="digite..."
+                [(ngModel)]="funcionario.func_formacao"
+                name="func_formacao"
+              />
             </mat-form-field>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <div class="container-btn py-2
-       text-center">
-          <button (click)="cadastrarFunc();modal.close('Save click')" class="btn btn-cad">Cadastrar</button>
-          <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">Cancelar</button>
+        <div class="container-btn py-2 text-center">
+          <button
+            (click)="cadastrarFunc(); modal.close('Save click')"
+            class="btn btn-cad"
+          >
+            Cadastrar
+          </button>
+          <button
+            (click)="modal.close('Save click')"
+            class="btn btn-cancel mx-3"
+          >
+            Cancelar
+          </button>
         </div>
       </div>
     </div>
   </ng-template>
+</div>

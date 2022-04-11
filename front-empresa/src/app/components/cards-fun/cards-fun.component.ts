@@ -17,6 +17,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./cards-fun.component.css'],
 })
 export class CardsFunComponent implements OnInit {
+  imgFunc!:string
   id_cargo: string = '';
   panelOpenState = false;
   showMe:boolean = false
@@ -153,6 +154,14 @@ export class CardsFunComponent implements OnInit {
     this.cargoService.buscarTodos().subscribe( res =>{
       this.cargos = res
     })
+  }
+
+  salvarFoto(id_func:string, funcionario:Funcionario){
+    this.funcionarioService.addImg(id_func, funcionario, this.funcionario.func_img).subscribe({
+      complete: () => this.funcionarioService.mensagem("foto anexada ao funcionário "),
+
+    })
+    
   }
 
   subirFoto(event:any, func_nome:any, id_funcionario:any){

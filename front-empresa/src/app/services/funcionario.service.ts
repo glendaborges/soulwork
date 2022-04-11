@@ -42,6 +42,10 @@ export class FuncionarioService {
     const url = `${this.baseUrl}/funcionario-cpf/${func_cpf}`;
     return this.http.get<Funcionario>(url);
   }
+  addImg(id_func:string,funcionario:Funcionario, nomeImg:any):Observable<Funcionario>{
+    const url = `${this.baseUrl}/funcionario-img/${id_func}?nome=${nomeImg}`;
+    return this.http.post<Funcionario>(url, funcionario)
+  }
 
   mensagem(msg: string): void {
     this.snackBar.open(msg, "X", {

@@ -59,7 +59,7 @@ export class AgendaFuncComponent implements OnInit {
   ngOnInit() {
     this.listarCompromissos()
     this.buscarFunc()
-    this.getDiasData(4,2022)
+    this.getDiasData(5,2022)
   }
 
   getDiasData(mes:any, ano:any){
