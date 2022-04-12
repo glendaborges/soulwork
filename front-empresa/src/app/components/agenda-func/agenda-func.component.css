@@ -1,9 +1,9 @@
 .container-agenda {
   height: 75%;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
-mat-card{
-  font-family: 'Poppins';
+mat-card {
+  font-family: "Poppins";
 }
 
 .box-header {
@@ -27,18 +27,12 @@ mat-card{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-/*   .mat-elevation-z10
-    box-shadow: none */
-
 h4 {
-  /* font-size: 18px; */
   font-weight: 600;
   color: #102350;
 }
 
-
 .box-calendar {
-  /* padding: .5rem; */
   padding: 0;
   border-radius: 8px;
   box-shadow: 0 0 10px #e4e4e4;
@@ -47,19 +41,19 @@ h4 {
   background-color: #f5f0f0;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-.top-calendar{
-width: 100%;
-background-color: #142C63;
-color: white;
-text-align: end;
-font-size: 22px;
-border-radius: 8px 8px 0 0;
-padding: 4px;
+.top-calendar {
+  width: 100%;
+  background-color: #142c63;
+  color: white;
+  text-align: end;
+  font-size: 22px;
+  border-radius: 8px 8px 0 0;
+  padding: 4px;
 }
 .top-calendar i {
   margin-right: 10px;
 }
-.wrapper-calendar{
+.wrapper-calendar {
   padding: 10px;
 }
 
@@ -72,16 +66,14 @@ ol {
 }
 
 li {
-  padding: .25rem;
+  padding: 0.25rem;
   font-size: 1.8ch;
   cursor: pointer;
-
 }
 
 li:hover {
   font-weight: 600;
 }
-
 
 .day-name {
   background: #eee;
@@ -91,7 +83,6 @@ li:hover {
   margin-bottom: 2px;
   padding: 4px;
   text-align: center;
-
 }
 
 .header-calendar {
@@ -115,7 +106,7 @@ li:hover {
 }
 
 .cssbuttons-io-button {
-  background: #142C63;
+  background: #142c63;
   color: white;
   padding: 0.35em;
   padding-left: 1.2em;
@@ -166,10 +157,10 @@ li:hover {
   transform: scale(0.95);
 }
 
-i{
+i {
   cursor: pointer;
 }
-.space{
+.space {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -177,66 +168,64 @@ i{
 .space i {
   font-size: 20px;
 }
-.bx-check{
+.bx-check {
   color: #008000;
 }
-.bx-task-x{
+.bx-task-x {
   color: #e62222;
 }
 
-.bxs-edit{
-  color: #142C63;
+.bxs-edit {
+  color: #142c63;
   font-size: 20px;
 }
-.bx-calendar-event{
+.bx-calendar-event {
   font-size: 25px;
 }
 .btn-light i {
   font-size: 22px;
 }
 
-.close{
+.close {
   border: none;
   outline: none;
   background-color: transparent;
   font-size: 30px;
   transition: 300ms;
 }
-.close:hover{
+.close:hover {
   color: red;
 }
 
-.btn-cad{
- background-color: #142C63;
- color: #ffffff;
+.btn-cad {
+  background-color: #142c63;
+  color: #ffffff;
 }
-.btn{
- border: none;
+.btn {
+  border: none;
 }
-.btn-cancel{
- background: #f8f6f6;
- box-shadow: 6px 6px 12px #dfdddd,
-            -6px -6px 12px #ffffff;
+.btn-cancel {
+  background: #f8f6f6;
+  box-shadow: 6px 6px 12px #dfdddd, -6px -6px 12px #ffffff;
 }
-.form{
-
- display: flex;
- justify-content: center;
+.form {
+  display: flex;
+  justify-content: center;
 }
-mat-form-field{
- width: 350px;
+mat-form-field {
+  width: 350px;
 }
-h5{
- font-weight: 600;
- color: #142C63;
+h5 {
+  font-weight: 600;
+  color: #142c63;
 }
 
-.btn-del{
- background-color:  #102350;
- color: white;
+.btn-del {
+  background-color: #102350;
+  color: white;
 }
-.btn-del i{
- color: transparent;
+.btn-del i {
+  color: transparent;
 }
 /* Removes the clear button from date inputs */
 input[type="date"]::-webkit-clear-button {
@@ -260,56 +249,54 @@ input[type="date"] {
   color: #95a5a6;
   font-family: "Helvetica", arial, sans-serif;
   font-size: 18px;
-  border:1px solid #ecf0f1;
-  background:#ecf0f1;
-  padding:5px;
+  border: 1px solid #ecf0f1;
+  background: #ecf0f1;
+  padding: 5px;
   display: inline-block !important;
   visibility: visible !important;
 }
 
-input[type="date"], focus {
+input[type="date"],
+focus {
   color: #95a5a6;
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
 }
-@media(max-width:835px){
-  .box-header{
+@media (max-width: 835px) {
+  .box-header {
     flex-direction: column;
     text-align: center;
   }
-
 }
-@media(max-width:450px){
-  .container-agenda{
+@media (max-width: 450px) {
+  .container-agenda {
     height: 90%;
   }
   .box-comp {
     flex-direction: column-reverse;
-    height: 78%;
+    height: 82%;
     gap: 0;
   }
-  .box-content{
+  .box-content {
     width: 100%;
   }
   .cssbuttons-io-button {
     font-size: 10px;
   }
 }
-@media(max-width:375px){
+@media (max-width: 375px) {
   .box-calendar {
     width: 100%;
   }
   .cssbuttons-io-button {
     font-size: 10px;
   }
-  .box-header{
+  .box-header {
     flex-direction: column;
     text-align: center;
   }
-  mat-card{
+  mat-card {
     font-size: 12px;
   }
-
 }
-
