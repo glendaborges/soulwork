@@ -35,3 +35,21 @@
 a{
 color: #142C63;
 }
+.navbar-toggler{
+  border: none;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: #142C63;
+  transition: 300ms;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+  font-weight: 600;
+}
+
+

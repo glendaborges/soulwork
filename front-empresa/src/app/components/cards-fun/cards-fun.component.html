@@ -1,5 +1,5 @@
-<div class="container container-card">
-  <div class="d-flex container-title">
+<div class="container container-main">
+  <div class="container-title">
     <h4 class="text-center title mt-5">
       {{ infoCargo?.car_nome }} <i class="bx bx-chevrons-right"></i
       ><span> Funcionários</span>
@@ -18,8 +18,10 @@
         </svg>
       </div>
     </button>
+    <button (click)="open(modalCadastrar)" class="btn-mobile mt-5">
+      Cadastrar</button>
   </div>
-  <div class="container row mt-5">
+  <div class="container container-card mt-5">
     <div *ngIf="funcionarios.length == 0" style="height: 55vh">
       <mat-card class="mat-elevation-z5"
         >Nenhum funcionário cadastrado!</mat-card
@@ -59,7 +61,7 @@
                 <img
                   class="img"
                   src="{{ fun.func_img }}"
-                  onerror="this.src='/assets/img/default-img.png'"
+                  onerror="this.src='https://scontent.fssa21-1.fna.fbcdn.net/v/t39.30808-6/278395787_5177930728964583_7074366537478034453_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=h2daSPq4FPUAX9d2a3d&_nc_ht=scontent.fssa21-1.fna&oh=00_AT-8V6jplJyGdSe46JKD0HcDzI_uEJ2KgwWHt6NKs6nfBQ&oe=625B61F1'"
                 />
               </div>
             </div>

@@ -128,10 +128,15 @@ h5{
   .container-turma{
     height: 100%;
   }
+  .container-text-header{
+    display: flex;
+    justify-content: space-between;
+  }
   .btn-mobile{
     display: block;
+    height: 80%;
     padding: 8px;
-    margin-top: 20px;
+    margin-top: 40px;
     border: none;
     background-color: #102350;
     color: #ffffff;
@@ -140,5 +145,5 @@ h5{
   .cssbuttons-io-button{
     display: none;
   }
-  
+
 }

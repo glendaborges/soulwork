@@ -2,7 +2,7 @@
 *, .mat-h2, .mat-title, .mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4, .mat-typography h5, .mat-typography h6{
   font-family:  'Poppins', sans-serif
 }
-  
+
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Poppins', sans-serif;box-sizing: border-box; }
 
@@ -10,3 +10,4 @@ body { margin: 0; font-family: 'Poppins', sans-serif;box-sizing: border-box; }
   color: #142C63;
   background-color: #eceef0;
 }
+

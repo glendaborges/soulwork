@@ -1,6 +1,7 @@
 
 .btn-cad{
   background-color: #142C63;
+  margin-right: 20px;
   color: #ffffff;
 }
 .btn{
@@ -15,16 +16,16 @@ h5{
   font-weight: 600;
   color: #142C63;
 }
-/* input{
-  box-shadow: 4px 4px 12px #dfdddd,
-             -4px -4px 12px #ffffff;
-  border: none;
-}
-input:focus{
-  box-shadow: 4px 4px 12px #dfdddd,
-  -4px -4px 12px #ffffff;
-} */
+
 
 mat-form-field{
   width: 350px;
+}
+@media(max-width:430px){
+  mat-form-field{
+    width: 220px;
+  }
+  .btn-cad{
+    margin-right: 8px;
+  }
 }

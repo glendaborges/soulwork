@@ -1,90 +1,103 @@
-.container-card{
+.container-main {
   height: 79%;
 }
-.title{
+.container-card {
+  width: 80%;
+}
+.container-title {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-mobile {
+  display: none;
+}
+.title {
   padding: 25px;
   font-weight: 600;
   color: #0d1c41;
 }
 
 .card {
-  width: 270px;
+  width: 290px;
   height: 315px;
   border-radius: 10px;
- }
- .btn-menu{
+  margin: 0 auto;
+}
+.btn-menu {
   border: none;
   background-color: transparent;
-  color: #142C63;
+  color: #142c63;
   font-size: 20px;
-
 }
-.btns-actions{
+.btns-actions {
   font-size: 24px;
-  color: #142C63;
-
+  color: #142c63;
 }
-.ac{
+.ac {
   cursor: pointer;
   transition: 300ms;
 }
-.ac:hover{
+.ac:hover {
   font-size: 28px;
   color: #0d1c41;
 }
- .card .picture,.card .name,.card .jobtitle, .card .btns-actions {
+.card .picture,
+.card .name,
+.card .jobtitle,
+.card .btns-actions {
   display: flex;
   justify-content: center;
   align-items: center;
- }
+}
 
- .card .picture {
+.card .picture {
   width: 100%;
   margin: auto;
- }
+}
 
- .card .img{
-   width: 130px;
-   height: 130px;
-   border-radius: 100%;
-   object-fit: cover;
-   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
- }
- .card .img-defaut{
+.card .img {
   width: 130px;
   height: 130px;
   border-radius: 100%;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
- }
- .bg-card{
-   background-color: #dfe2eb;
-   border-radius: 10px 10px 0 0 ;
-   height: 150px;
+}
+.card .img-defaut {
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.bg-card {
+  background-color: #dfe2eb;
+  border-radius: 10px 10px 0 0;
+  height: 150px;
+}
 
- }
+.card .picture p {
+  font-size: 0.8em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 
- .card .picture p {
-  font-size: .8em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- }
-
- .card .name p {
+.card .name p {
   margin-top: 8%;
   margin-bottom: 5%;
   font-size: 1em;
- }
+}
 
- .card .jobtitle p {
+.card .jobtitle p {
   margin-bottom: 10%;
-  font-size: .54em;
+  font-size: 0.54em;
   text-transform: uppercase;
-  letter-spacing: .5em;
- }
-
+  letter-spacing: 0.5em;
+}
 
 .cssbuttons-io-button {
-  background: #142C63;
+  background: #142c63;
   color: white;
   font-family: inherit;
   padding: 0.35em;
@@ -101,9 +114,9 @@
   position: relative;
   height: 2.8em;
   padding-right: 3.3em;
- }
+}
 
- .cssbuttons-io-button .icon {
+.cssbuttons-io-button .icon {
   background: white;
   margin-left: 1em;
   position: absolute;
@@ -116,94 +129,107 @@
   box-shadow: 0.1em 0.1em 0.6em 0.2em #102350;
   right: 0.3em;
   transition: all 0.3s;
- }
+}
 
- .cssbuttons-io-button:hover .icon {
+.cssbuttons-io-button:hover .icon {
   width: calc(100% - 0.6em);
- }
+}
 
- .cssbuttons-io-button .icon svg {
+.cssbuttons-io-button .icon svg {
   width: 1.1em;
   transition: transform 0.3s;
   color: #102350;
- }
+}
 
- .cssbuttons-io-button:hover .icon svg {
+.cssbuttons-io-button:hover .icon svg {
   transform: translateX(0.1em);
- }
+}
 
- .cssbuttons-io-button:active .icon {
+.cssbuttons-io-button:active .icon {
   transform: scale(0.95);
- }
+}
 
- .container-title{
-   justify-content: space-between;
- }
-.show-more{
+.show-more {
   width: 45px;
   height: 45px;
   border-radius: 100%;
   border: none;
-  background: #142C63;
-  box-shadow: 6px 6px 12px #dfdddd,
-             -6px -6px 12px #ffffff;
+  background: #142c63;
+  box-shadow: 6px 6px 12px #dfdddd, -6px -6px 12px #ffffff;
   color: #ffffff;
 }
 
-
-.close{
+.close {
   border: none;
   outline: none;
   background-color: transparent;
   font-size: 30px;
   transition: 300ms;
 }
-.close:hover{
+.close:hover {
   color: red;
 }
 
-.btn-cad{
- background-color: #142C63;
- color: #ffffff;
+.btn-cad {
+  background-color: #142c63;
+  color: #ffffff;
 }
-.btn{
- border: none;
+.btn {
+  border: none;
 }
-.btn-cancel{
- background: #f8f6f6;
- box-shadow: 6px 6px 12px #dfdddd,
-            -6px -6px 12px #ffffff;
+.btn-cancel {
+  background: #f8f6f6;
+  box-shadow: 6px 6px 12px #dfdddd, -6px -6px 12px #ffffff;
 }
-.form{
-
- display: flex;
- justify-content: center;
+.form {
+  display: flex;
+  justify-content: center;
 }
-mat-form-field{
- width: 350px;
+mat-form-field {
+  width: 350px;
 }
-h5{
- font-weight: 600;
- color: #142C63;
+h5 {
+  font-weight: 600;
+  color: #142c63;
 }
 
-.btn-del{
- background-color:  #e62222;
- color: white;
+.btn-del {
+  background-color: #e62222;
+  color: white;
 }
-.btn-del i{
- color: transparent;
+.btn-del i {
+  color: transparent;
 }
-@media(max-height:900px)
-{
-  .container-card{
+mat-card{
+  font-family: 'Poppins';
+}
+@media (max-height: 900px) {
+  /* .container-card{
    width: 85%;
 
-  }
+  }*/
   .card {
     width: 230px;
     height: 290px;
     border-radius: 10px;
-   }
+  }
 }
-
+@media (max-width: 450px) {
+  .title {
+    padding: 10px;
+    font-size: 15px;
+  }
+  .cssbuttons-io-button {
+    display: none;
+  }
+  .btn-mobile {
+    display: block;
+    height: 80%;
+    padding: 8px;
+    margin-top: 40px;
+    border: none;
+    background-color: #102350;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+}

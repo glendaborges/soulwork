@@ -125,7 +125,7 @@ export class CardsFunComponent implements OnInit {
     this.funcionarioService.deletarFun(id_fun).subscribe({
       complete:() =>{ this.funcionarioService.mensagem("Funcionário excluído com sucesso")
                       this.pegarFunCargo()},
-      error: () => this.funcionarioService.mensagem("Erro ao excluir funcionário")
+      error: () => this.funcionarioService.mensagem("Esse funcionário não pode ser excluído, pois possui endereço e compromissos associados a ele.")
     })
   }
 
@@ -173,9 +173,6 @@ export class CardsFunComponent implements OnInit {
       formData.append("foto", this.foto)
 
       const nome:string = func_nome + '-' + event.target.files[0].name
-      // http://localhost:8080/escola/envio/6?nome=yyyyyy
-
-      // console.log(`http://localhost:8080/escola/envio/${this.idProfCadastrado}?nome=${nome}`)
 
       this.http.post(`https://backend-empresa-deploy.herokuapp.com/empresa/envio/${id_funcionario}?nome=${nome}`, formData).subscribe({
         complete: () => console.log("foto enviada")
