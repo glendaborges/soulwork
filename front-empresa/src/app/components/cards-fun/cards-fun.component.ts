@@ -158,10 +158,11 @@ export class CardsFunComponent implements OnInit {
 
   salvarFoto(id_func:string, funcionario:Funcionario){
     this.funcionarioService.addImg(id_func, funcionario, this.funcionario.func_img).subscribe({
-      complete: () => this.funcionarioService.mensagem("foto anexada ao funcionário "),
+      complete: () => {this.funcionarioService.mensagem("foto anexada ao funcionário ")
+                      this.pegarFunCargo()}
 
     })
-    
+
   }
 
   subirFoto(event:any, func_nome:any, id_funcionario:any){
