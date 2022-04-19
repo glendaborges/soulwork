@@ -1,105 +1,205 @@
-<div class="container-agenda ">
+<div class="container-agenda">
   <div class="box-comp mt-5">
-    <section class="box-content  mat-elevation-z9 mt-4">
+    <section class="box-content mat-elevation-z9 mt-4">
       <div class="box-header">
         <div class="box-name">
-          <h4 class="mt-2">Agenda <i class='bx bx-calendar-event' ></i></h4>
-          <p>{{funcionario?.func_nome}}</p>
+          <h4 class="mt-2">Agenda <i class="bx bx-calendar-event"></i></h4>
+          <p>{{ funcionario?.func_nome }}</p>
         </div>
-        <button class="cssbuttons-io-button" (click)="open(modalCadastrar);resetarModal()"> Adicionar Evento
+        <button
+          class="cssbuttons-io-button"
+          (click)="open(modalCadastrar); resetarModal()"
+        >
+          Adicionar Evento
           <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  fill="none"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z" fill="currentColor"></path></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"
+                fill="currentColor"
+              ></path>
+            </svg>
           </div>
         </button>
-
       </div>
       <div class="agenda mt-4">
         <mat-accordion>
-          <mat-expansion-panel class="mt-3" *ngFor="let i of compromissos" hideToggle>
+          <mat-expansion-panel
+            class="mt-3"
+            *ngFor="let i of compromissos"
+            hideToggle
+          >
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{i.con_nome}}
+                {{ i.con_nome }}
               </mat-panel-title>
               <mat-panel-description>
                 <div class="space">
-                  {{i.con_data | date: 'dd/MM/yyyy'}}
-                  <div *ngIf="i.con_status == 'PENDENTE'"><i class='bx bx-time-five'></i></div>
-                  <div *ngIf="i.con_status == 'CONCLUIDO'"><i class='bx bx-check' ></i></div>
-                  <div *ngIf="i.con_status == 'CANCELADO'"><i class='bx bx-task-x'></i></div>
+                  {{ i.con_data | date: "dd/MM/yyyy" }}
+                  <div *ngIf="i.con_status == 'PENDENTE'">
+                    <i class="bx bx-time-five"></i>
+                  </div>
+                  <div *ngIf="i.con_status == 'CONCLUIDO'">
+                    <i class="bx bx-check"></i>
+                  </div>
+                  <div *ngIf="i.con_status == 'CANCELADO'">
+                    <i class="bx bx-task-x"></i>
+                  </div>
                 </div>
               </mat-panel-description>
             </mat-expansion-panel-header>
             <table class="table">
               <thead>
-              <tr >
-                <th scope="col">Localização</th>
-                <th scope="col">Status</th>
-                <th scope="col"></th>
-                <th scope="col"><i (click)="open(modalEditar);listarUmCompromisso(i.id_compromisso)" class='bx bxs-edit'  matTooltip="Editar" ></i></th>
-                <!-- MODAL EDITAR -->
-                <ng-template #modalEditar let-modal>
-                  <div class="background">
-                    <div class="modal-header">
-                      <h4 class="modal-title" class=" text-center">Editar Evento</h4>
-                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body form">
-                      <form class=" ">
-                        <div class="mb-3">
-                          <mat-form-field appearance="legacy">
-                            <mat-label>Nome do Evento</mat-label>
-                            <input matInput digite...="digite..." [(ngModel)]="compromissoEdit.con_nome" name="con_nome">
-                          </mat-form-field>
-                        </div>
-                        <div class="mb-3">
-                          <mat-form-field appearance="legacy">
-                            <mat-label>Localização</mat-label>
-                            <input matInput digite...="digite..." [(ngModel)]="compromissoEdit.con_localizacao" name="con_localizacao">
-                          </mat-form-field>
-                        </div>
-                        <div class="mb-3">
+                <tr>
+                  <th scope="col">Localização</th>
+                  <th scope="col">Status</th>
+                  <th scope="col"></th>
+                  <th scope="col">
+                    <i
+                      (click)="
+                        open(modalEditar); listarUmCompromisso(i.id_compromisso)
+                      "
+                      class="bx bxs-edit"
+                      matTooltip="Editar"
+                    ></i>
+                  </th>
+                  <!-- MODAL EDITAR -->
+                  <ng-template #modalEditar let-modal>
+                    <div class="background">
+                      <div class="modal-header">
+                        <h4 class="modal-title" class="text-center">
+                          Editar Evento
+                        </h4>
+                        <button
+                          type="button"
+                          class="close"
+                          aria-label="Close"
+                          (click)="modal.dismiss('Cross click')"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body form">
+                        <form class=" ">
+                          <div class="mb-3">
+                            <mat-form-field appearance="legacy">
+                              <mat-label>Nome do Evento</mat-label>
+                              <input
+                                matInput
+                                digite...="digite..."
+                                [(ngModel)]="compromissoEdit.con_nome"
+                                name="con_nome"
+                              />
+                            </mat-form-field>
+                          </div>
+                          <div class="mb-3">
+                            <mat-form-field appearance="legacy">
+                              <mat-label>Localização</mat-label>
+                              <input
+                                matInput
+                                digite...="digite..."
+                                [(ngModel)]="compromissoEdit.con_localizacao"
+                                name="con_localizacao"
+                              />
+                            </mat-form-field>
+                          </div>
+                          <div class="mb-3">
                             <label>Escolha uma data</label>
-                            <br>
-                            <input type="date" [(ngModel)]="compromissoEdit.con_data" name="con_data">
+                            <br />
+                            <input
+                              type="date"
+                              [(ngModel)]="compromissoEdit.con_data"
+                              name="con_data"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <div class="container-btn py-2 text-center">
+                          <button
+                            (click)="
+                              editarCompromisso(i.id_compromisso);
+                              modal.close('Save click')
+                            "
+                            class="btn btn-cad"
+                          >
+                            Salvar
+                          </button>
+                          <button
+                            (click)="modal.close('Save click')"
+                            class="btn btn-cancel mx-3"
+                          >
+                            Cancelar
+                          </button>
                         </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <div class="container-btn py-2
-                     text-center">
-                        <button (click)="editarCompromisso(i.id_compromisso);modal.close('Save click')" class="btn btn-cad">Salvar</button>
-                        <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">Cancelar</button>
                       </div>
                     </div>
-                  </div>
-                </ng-template>
-                <!-- // MODAL EDITAR -->
-              </tr>
+                  </ng-template>
+                  <!-- // MODAL EDITAR -->
+                </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{{i.con_localizacao}}</td>
-                  <td>{{i.con_status | titlecase}}</td>
+                  <td>{{ i.con_localizacao }}</td>
+                  <td>{{ i.con_status | titlecase }}</td>
                   <td *ngIf="i.con_status == 'PENDENTE'">
-                    <button class="btn btn-light" (click)="open(modalConcluir)"  matTooltip="Concluir evento"><i  class='bx bx-check' ></i></button >
-                    <button class="btn btn-light" (click)="open(modalCancelar)"  matTooltip="Cancelar evento"><i class='bx bx-task-x'></i></button>
+                    <button
+                      class="btn btn-light"
+                      (click)="open(modalConcluir)"
+                      matTooltip="Concluir evento"
+                    >
+                      <i class="bx bx-check"></i>
+                    </button>
+                    <button
+                      class="btn btn-light"
+                      (click)="open(modalCancelar)"
+                      matTooltip="Cancelar evento"
+                    >
+                      <i class="bx bx-task-x"></i>
+                    </button>
                     <!-- / MODAL CONCLUSÃO  DE EVENTO-->
                     <ng-template #modalConcluir let-modal>
                       <div class="modal-header">
                         <h4 class="modal-title" id="excluir">Aviso</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <button
+                          type="button"
+                          class="close"
+                          aria-label="Close"
+                          (click)="modal.dismiss('Cross click')"
+                        >
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <p>Deseja realmente concluir o evento de <strong>{{i.con_nome}}</strong>?</p>
+                        <p>
+                          Deseja realmente concluir o evento de
+                          <strong>{{ i.con_nome }}</strong
+                          >?
+                        </p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
-                        <button type="button" class="btn btn-del"
-                          (click)="concluirCompromisso(i.id_compromisso,i);modal.close('Save click')"><span>Salvar</span></button>
+                        <button
+                          type="button"
+                          class="btn btn-cancel"
+                          (click)="modal.close('Save click')"
+                        >
+                          Cancelar
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-del"
+                          (click)="
+                            concluirCompromisso(i.id_compromisso, i);
+                            modal.close('Save click')
+                          "
+                        >
+                          <span>Salvar</span>
+                        </button>
                       </div>
                     </ng-template>
                     <!-- / CONCLUSÃO  DE EVENTO -->
@@ -107,17 +207,40 @@
                     <ng-template #modalCancelar let-modal>
                       <div class="modal-header">
                         <h4 class="modal-title" id="excluir">Aviso</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <button
+                          type="button"
+                          class="close"
+                          aria-label="Close"
+                          (click)="modal.dismiss('Cross click')"
+                        >
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <p>Deseja realmente cancelar o evento de <strong>{{i.con_nome}}</strong>?</p>
+                        <p>
+                          Deseja realmente cancelar o evento de
+                          <strong>{{ i.con_nome }}</strong
+                          >?
+                        </p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class=" btn btn-cancel" (click)="modal.close('Save click')">Cancelar</button>
-                        <button type="button" class="btn btn-del"
-                          (click)="cancelarCompromisso(i.id_compromisso, i);modal.close('Save click')"><span>Salvar</span></button>
+                        <button
+                          type="button"
+                          class="btn btn-cancel"
+                          (click)="modal.close('Save click')"
+                        >
+                          Cancelar
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-del"
+                          (click)="
+                            cancelarCompromisso(i.id_compromisso, i);
+                            modal.close('Save click')
+                          "
+                        >
+                          <span>Salvar</span>
+                        </button>
                       </div>
                     </ng-template>
                     <!-- /  CANCELAMENTO   DE EVENTO -->
@@ -128,76 +251,104 @@
             </table>
           </mat-expansion-panel>
         </mat-accordion>
-        <mat-card *ngIf="compromissos.length == 0"> Nenhum compromisso!</mat-card>
+        <h4  class="text-center" *ngIf="compromissos.length == 0">
+          Nenhum compromisso agendado!</h4>
       </div>
     </section>
-    <section class="box-calendar mat-elevation-z20  mt-4">
+    <section class="box-calendar mat-elevation-z20 mt-4">
       <div class="top-calendar">
-        <i class='bx bxs-calendar'></i>
+        <i class="bx bxs-calendar"></i>
       </div>
-      <div class="wrapper-calendar mt-4 ">
-
+      <div class="wrapper-calendar mt-4">
         <div class="header-calendar mb-4">
           <div>
-            <button (click)="mudarMes(-1)" class="btn-prev"> <i class='bx bx-chevron-left'></i> </button>
+            <button (click)="mudarMes(-1)" class="btn-prev">
+              <i class="bx bx-chevron-left"></i>
+            </button>
           </div>
-          <h1>{{dataSelect | date:'MMMM, yyyy'}}</h1>
+          <h1>{{ dataSelect | date: "MMMM, yyyy" }}</h1>
           <div>
-            <button (click)="mudarMes(1)" class="btn-next"><i class='bx bx-chevron-right'></i></button>
+            <button (click)="mudarMes(1)" class="btn-next">
+              <i class="bx bx-chevron-right"></i>
+            </button>
           </div>
         </div>
         <ol>
-          <li *ngFor="let i of semana" class="day-name ">{{i | slice:0:3}}</li>
-          <li [style.gridColumnStart]="first ? i?.indexWeek : 'auto'" *ngFor="let i of mesSelect;let first = first">
-            <span>{{i?.value}}</span>
+          <li *ngFor="let i of semana" class="day-name">
+            {{ i | slice: 0:3 }}
+          </li>
+          <li
+            [style.gridColumnStart]="first ? i?.indexWeek : 'auto'"
+            *ngFor="let i of mesSelect; let first = first"
+          >
+            <span>{{ i?.value }}</span>
           </li>
         </ol>
       </div>
     </section>
   </div>
 </div>
-  <!-- **** MODAL DE CADASTRO **** -->
-  <ng-template #modalCadastrar let-modal>
-    <div class="background mat-elevation-z20 " >
-      <div class="modal-header">
-        <h4 class="modal-title" class=" text-center">Adicionar Evento</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
+<!-- **** MODAL DE CADASTRO **** -->
+<ng-template #modalCadastrar let-modal>
+  <div class="background mat-elevation-z20">
+    <div class="modal-header">
+      <h4 class="modal-title" class="text-center">Adicionar Evento</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body form">
+      <form class=" ">
+        <div class="mb-3">
+          <mat-form-field appearance="legacy">
+            <mat-label>Nome do Evento</mat-label>
+            <input
+              matInput
+              digite...="digite..."
+              [(ngModel)]="compromisso.con_nome"
+              name="con_nome"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="legacy">
+            <mat-label>Localização</mat-label>
+            <input
+              matInput
+              digite...="digite..."
+              [(ngModel)]="compromisso.con_localizacao"
+              name="con_localizacao"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <label>Escolha uma data</label>
+          <br />
+          <input
+            type="date"
+            [(ngModel)]="compromisso.con_data"
+            name="con_data"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <div class="container-btn py-2 text-center">
+        <button
+          (click)="cadastrarCompromisso(); modal.close('Save click')"
+          class="btn btn-cad"
+        >
+          Cadastrar
+        </button>
+        <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">
+          Cancelar
         </button>
       </div>
-      <div class="modal-body form">
-        <form class=" ">
-          <div class="mb-3">
-            <mat-form-field appearance="legacy">
-              <mat-label>Nome do Evento</mat-label>
-              <input matInput digite...="digite..." [(ngModel)]="compromisso.con_nome" name="con_nome">
-            </mat-form-field>
-          </div>
-          <div class="mb-3">
-            <mat-form-field appearance="legacy">
-              <mat-label>Localização</mat-label>
-              <input matInput digite...="digite..." [(ngModel)]="compromisso.con_localizacao" name="con_localizacao">
-            </mat-form-field>
-          </div>
-          <div class="mb-3">
-            <!-- <mat-form-field appearance="fill">
-              <mat-label>Data</mat-label>
-              <input matInput  [(ngModel)]="compromisso.con_data" name="con_data" [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field> -->
-              <label>Escolha uma data</label>
-              <br>
-              <input type="date" [(ngModel)]="compromisso.con_data" name="con_data">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <div class="container-btn py-2
-       text-center">
-          <button (click)="cadastrarCompromisso();modal.close('Save click')" class="btn btn-cad">Cadastrar</button>
-          <button (click)="modal.close('Save click')" class="btn btn-cancel mx-3">Cancelar</button>
-        </div>
-      </div>
     </div>
-  </ng-template>
+  </div>
+</ng-template>
