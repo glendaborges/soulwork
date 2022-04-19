@@ -44,7 +44,7 @@ constructor(private cargoService: CargoService, public dialog: MatDialog, privat
     this.cargoService.buscarTodos().subscribe((res) => {
       this.cargos = res;
 
-      console.log(this.cargos, 'cargos');
+      
     });
   }
 

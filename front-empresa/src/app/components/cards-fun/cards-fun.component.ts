@@ -104,7 +104,7 @@ export class CardsFunComponent implements OnInit {
     this.funcionarioService.buscarFunCargo(this.id_cargo).subscribe((res) => {
       this.funcionarios = res;
 
-      console.log(this.funcionarios)
+
     });
   }
 
@@ -112,7 +112,7 @@ export class CardsFunComponent implements OnInit {
     this.funcionarioService.buscarUmfunCargo(id).subscribe( res =>{
       this.funcionario = res
       this.funcionario.id_cargo = this.id_cargo
-      console.log(this.funcionario, "um func")
+
     })
   }
 
@@ -158,11 +158,22 @@ export class CardsFunComponent implements OnInit {
 
   salvarFoto(id_func:string, funcionario:Funcionario){
     this.funcionarioService.addImg(id_func, funcionario, this.funcionario.func_img).subscribe({
-      complete: () => {this.funcionarioService.mensagem("foto anexada ao funcionário ")
-                      this.pegarFunCargo()}
+      next: () => {this.funcionarioService.mensagem("foto anexada ao funcionário ")
+                      },
+      error: (e) =>{console.log(e)},
+      complete: () => {this.pegarFunCargo()}
 
     })
 
+  }
+  salvarfoto2(event:any,id_func:string, funcionario:Funcionario){
+    this.funcionarioService.addImg(id_func, funcionario, event.target.value).subscribe({
+      next: () => {this.funcionarioService.mensagem("foto anexada ao funcionário ")
+                      },
+      error: (e) =>{console.log(e)},
+      complete: () => {this.pegarFunCargo()}
+
+    })
   }
 
   subirFoto(event:any, func_nome:any, id_funcionario:any){
@@ -186,7 +197,7 @@ export class CardsFunComponent implements OnInit {
     this.enderecoService.buscarFuncEndereco(id_funcionario).subscribe( res =>{
       this.enderecoFuncionario = res
       this.endereco = res
-      console.log(res)
+
     })
   }
 

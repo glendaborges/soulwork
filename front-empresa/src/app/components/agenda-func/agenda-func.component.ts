@@ -121,7 +121,7 @@ export class AgendaFuncComponent implements OnInit {
     this.compromissoService.listarCompromisso(this.id_funcionario).subscribe( res =>{
       this.compromissos = res
 
-      console.log(this.compromissos)
+
     })
   }
 
@@ -134,7 +134,7 @@ export class AgendaFuncComponent implements OnInit {
   buscarFunc(){
     this.funcionarioService.buscarUmfunCargo(this.id_funcionario).subscribe( res =>{
       this.funcionario = res;
-      console.log(res)
+      
     })
   }
 

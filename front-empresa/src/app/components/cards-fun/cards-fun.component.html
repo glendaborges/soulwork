@@ -286,7 +286,7 @@
                     matInput
                     digite...="digite..."
                     [(ngModel)]="funcionario.func_img"
-                    name="func_img"
+                    name="func_img" (change)="salvarfoto2($event,fun.id_funcionario, fun)"
                   />
                 </mat-form-field>
               </div>
@@ -302,7 +302,6 @@
                   type="button"
                   class="btn btn-cad"
                   (click)="
-                    salvarFoto(fun.id_funcionario, fun);
                     recarregar();
                     modal.close('Save click')
                   "
