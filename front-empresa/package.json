@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d  dist/front-empresa"
   },
   "private": true,
   "dependencies": {
