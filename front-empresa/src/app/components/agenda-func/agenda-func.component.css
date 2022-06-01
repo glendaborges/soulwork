@@ -25,6 +25,19 @@ mat-card {
   padding: 35px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  overflow: auto;
+}
+.box-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.box-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(169, 172, 210, 0.368627451);
+}
+
+.box-content::-webkit-scrollbar-thumb {
+  background-color: #102350;
 }
 
 h4 {
@@ -282,7 +295,7 @@ focus {
     width: 100%;
   }
   .cssbuttons-io-button {
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 @media (max-width: 375px) {
@@ -290,7 +303,7 @@ focus {
     width: 100%;
   }
   .cssbuttons-io-button {
-    font-size: 10px;
+    font-size: 14px;
   }
   .box-header {
     flex-direction: column;
